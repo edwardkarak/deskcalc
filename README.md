@@ -1,2 +1,2 @@
 # deskcalc
-Calculator for Android
+Calculator for Android, using the `BigDecimalMath` library.
