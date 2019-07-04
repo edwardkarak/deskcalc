@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--<group android:id="@+id/hist">
+        <item android:title="@string/menuHist" android:id="@+id/menuHist"/>
+    </group>
+
+    <group android:id="@+id/groupHelp">
+        <item android:title="@string/menuHelp" android:id="@+id/menuHelp"/>-->
+    <item android:title="@string/menuAbout" android:id="@+id/menuAbout"/>
+    <!--</group>-->
+
+    <!--TODO: add menu group separators -->
+
+    <group android:id="@+id/groupTrigOrHyp" android:checkableBehavior="single">
+        <item android:title="@string/menuSetCirc" android:id="@+id/menuSetCirc"/>
+        <item android:title="@string/menuSetHyp" android:id="@+id/menuSetHyp"/>
+    </group>
+
+    <group android:id="@+id/groupSetView" android:checkableBehavior="single">
+        <item android:title="@string/menuSetSci" android:id="@+id/menuSci"/>
+        <item android:title="@string/menuSetStd" android:id="@+id/menuStd"/>
+    </group>
+
+    <group android:id="@+id/groupEnableVibe">
+        <item android:title="@string/menuVibeSettings" android:id="@+id/menuVibeSettings"/>
+    </group>
+</menu>

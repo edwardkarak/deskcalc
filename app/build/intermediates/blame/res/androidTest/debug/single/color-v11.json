@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\Users\\TanyaUser\\AndroidStudioProjects\\DeskCalculator\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "C:\\Users\\TanyaUser\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.0-alpha1.aar\\5dd2d4b2072dea5618efbd718389d8eb\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\TanyaUser\\AndroidStudioProjects\\DeskCalculator\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "C:\\Users\\TanyaUser\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.0-alpha1.aar\\5dd2d4b2072dea5618efbd718389d8eb\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
+    }
+]

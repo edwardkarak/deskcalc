@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="6">
+
+        <ToggleButton
+            android:id="@+id/toggInv"
+            style="@style/calcBtnAppearance"
+
+            
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOn="@string/inv"
+            android:textOff="@string/inv"/>
+
+        <Button
+            android:id="@+id/lparen"
+            style="@style/calcBtnAppearance"
+
+            
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:text="@string/lparen"/>
+
+        <ImageButton
+            android:id="@+id/comma"
+            style="@style/calcBtnAppearance"
+
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@string/descrComma"
+            android:src="@drawable/ic_comma"/>
+
+        <Button
+            android:id="@+id/rparen"
+            style="@style/calcBtnAppearance"
+
+            
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/rparen"/>
+
+        <ImageButton
+            android:id="@+id/funcSqrtOrFuncNrt"
+            style="@style/calcBtnAppearance"
+
+
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@string/descrSqrt"
+            android:src="@drawable/ic_sqrt"/>
+
+        <ImageButton
+            android:id="@+id/opSquare"
+            android:contentDescription="@string/descrSquare"
+            style="@style/calcBtnAppearance"
+            android:layout_height="match_parent"
+
+            android:layout_weight="1"
+            android:src="@drawable/ic_sqr"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="6">
+
+        <Button
+            android:id="@+id/opSciNotOrFuncLog"
+            style="@style/calcBtnAppearance"
+
+            
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/sciNot"/>
+
+        <Button
+            android:id="@+id/funcExpOrFuncLn"
+            android:text="@string/funcExp"
+
+            style="@style/calcBtnAppearance"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/opModOrOpFact"
+            style="@style/calcBtnAppearance"
+
+
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/opMod"/>
+
+        <Button
+            android:id="@+id/funcGcfOrFuncLcm"
+            style="@style/calcBtnAppearance"
+
+
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/funcGcf"/>
+
+        <Button
+            android:id="@+id/constPi"
+            style="@style/calcBtnAppearance"
+
+
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/constPi"/>
+
+        <ImageButton
+            android:id="@+id/opPow"
+            style="@style/calcBtnAppearance"
+
+
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@string/descrPow"
+            android:src="@drawable/ic_exponent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="6">
+
+        <Button
+            android:id="@+id/funcSinOrFuncAsin"
+            style="@style/calcBtnAppearance"
+
+            
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/funcSin"/>
+
+        <Button
+            android:id="@+id/funcCosOrFuncAcos"
+            style="@style/calcBtnAppearance"
+
+            
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/funcCos"/>
+
+        <Button
+            android:id="@+id/funcTanOrFuncAtan"
+            style="@style/calcBtnAppearance"
+
+            
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/funcTan"/>
+
+        <Button
+            android:id="@+id/immDms"
+            style="@style/calcBtnAppearance"
+
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/immDms"
+            android:textSize="10sp"/>
+
+        <Button
+            android:id="@+id/rcl"
+            style="@style/calcBtnAppearance"
+
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/rcl"
+            android:textSize="10sp"/>
+
+        <Button
+            android:id="@+id/varAns"
+            style="@style/calcBtnAppearance"
+
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/varAns"
+            android:textSize="13sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="6">
+
+
+    </LinearLayout>
+</LinearLayout>

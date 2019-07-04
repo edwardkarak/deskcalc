@@ -1,0 +1,159 @@
+<!DOCTYPE resources [
+    <!ENTITY appname "Desk Calculator">
+    <!ENTITY author "Edward Karak for MagniStudios, Inc.">
+    ]>
+<resources>
+    <string name="app_name">&appname;</string>
+
+    <!--KEY LABELS-->
+    <string name="opDiv">/</string>
+    <string name="opMul">*</string>
+    <string name="opSub">&#x2212;</string>
+    <string name="opAdd">+</string>
+    <string name="opMod">Mod</string>
+    <string name="opFact">n!</string>
+    <string name="opSquare">²</string>
+
+    <string name="opNeg">(-)</string>
+    <string name="decpt">.</string>
+    <string name="enter">Enter</string>
+
+    <string name="bkspc">⌫</string>
+    <string name="clr">C</string>
+    <string name="ce">CE</string>
+
+    <string name="inv">INV</string>
+
+    <string name="sciNot">E</string>
+
+    <string name="lparen">(</string>
+    <string name="rparen">)</string>
+
+    <string name="constPi">π</string>
+
+    <string name="funcSin">sin</string>
+    <string name="funcAsin">asin</string>
+    <string name="funcSinh">sinh</string>
+    <string name="funcAsinh">asinh</string>
+
+    <string name="funcCos">cos</string>
+    <string name="funcAcos">acos</string>
+    <string name="funcCosh">cosh</string>
+    <string name="funcAcosh">acosh</string>
+
+    <string name="funcTan">tan</string>
+    <string name="funcAtan">atan</string>
+    <string name="funcTanh">tanh</string>
+    <string name="funcAtanh">atanh</string>
+
+    <string name="funcLog">log</string>
+    <string name="funcLn">ln</string>
+
+    <string name="funcGcf">gcf</string>
+    <string name="funcLcm">lcm</string>
+
+    <string name="funcExp">exp</string>
+
+    <string name="varAns">Ans</string>
+
+    <string name="funcNrt">nrt</string>
+
+    <string name="rcl">RCL…</string>
+
+    <string name="immDms">\u25BADMS</string>
+
+    <!--SYMBOLS-->
+
+    <string name="sym_opDiv">/</string>
+    <string name="sym_opMul">*</string>
+    <string name="sym_opSub">&#x2212;</string>
+    <string name="sym_opAdd">+</string>
+    <string name="sym_opMod">Mod</string>
+    <string name="sym_opFact">!</string>
+    <string name="sym_opSquare">²</string>
+
+    <string name="sym_opNeg">-</string>
+    <string name="sym_decpt">.</string>
+    <string name="sym_opSciNot">E</string>
+
+    <string name="sym_lparen">(</string>
+    <string name="sym_rparen">)</string>
+
+    <string name="sym_constPi">π</string>
+
+    <string name="sym_funcSin">sin(</string>
+    <string name="sym_funcAsin">asin(</string>
+
+    <string name="sym_funcCos">cos(</string>
+    <string name="sym_funcAcos">acos(</string>
+
+    <string name="sym_funcTan">tan(</string>
+    <string name="sym_funcAtan">atan(</string>
+
+    <string name="sym_funcSinh">sinh(</string>
+    <string name="sym_funcAsinh">asinh(</string>
+
+    <string name="sym_funcCosh">cosh(</string>
+    <string name="sym_funcAcosh">acosh(</string>
+
+    <string name="sym_funcTanh">tanh(</string>
+    <string name="sym_funcAtanh">atanh(</string>
+
+    <string name="sym_funcLog">log(</string>
+    <string name="sym_funcLn">ln(</string>
+
+    <string name="sym_funcExp">exp(</string>
+
+    <string name="sym_funcGcf">gcf(</string>
+    <string name="sym_funcLcm">lcm(</string>
+    <string name="sym_funcNrt">nrt(</string>
+
+
+    <string name="sym_funcSqrt">&#x221a;(</string>
+    <string name="sym_opPow">^</string>
+
+    <string name="sym_comma">,</string>
+
+    <string name="sym_varAns">Ans</string>
+
+    <string name="sym_immDms">\u25BADMS</string>
+
+    <!--CONTENT DESCRIPTIONS (FOR IMAGEBUTTONS)-->
+    <string name="descrSqrt">Square Root</string>
+    <string name="descrPow">Power</string>
+    <string name="descrComma">To separate arguments</string>
+    <string name="descrSquare">Square</string>
+
+    <!--OTHER-->
+    <string name="aboutTitle">About &appname;</string>
+    <string name="aboutMsg">Desk calculator for Android\nCopyright &#169;MMXIX by &author;</string>
+    <string name="err_zeroDivisor">Error: Zero divisor</string>
+    <string name="errTitle_dom">Domain Error</string>
+    <string name="errTitle_syntax">Syntax Error</string>
+    <string name="err_ovflow">Error: Overflow</string>
+    <string name="err_undflow">Error: Underflow</string>
+    <string name="err_parenMismatch">Error: Mismatched parenthesis</string>
+    <string name="errTitle_other">Unknown Error</string>
+    <string name="title_rclDlg">Recall a Variable</string>
+    <string name="title_vibeSettings">Vibration Settings</string>
+    <string name="btnDoRecall">Recall</string>
+    <string name="initAngleViewTxt">Initial Angle View Text</string>
+    <string name="posBtn">OK</string>
+    <string name="negBtn">Cancel</string>
+
+    <string name="degMode">DEG</string>
+    <string name="radMode">RAD</string>
+    <string name="gradMode">GRAD</string>
+
+    <!-- MENU -->
+    <string name="menuAbout">About…</string>
+    <string name="menuHelp">Help</string>
+    <string name="menuSetSci">Scientific</string>
+    <string name="menuSetStd">Standard</string>
+    <string name="menuHist">History…</string>
+    <string name="menuSetCirc">Circular</string>
+    <string name="menuSetHyp">Hyperbolic</string>
+    <string name="menuVibeSettings">Vibration Settings…</string>
+    <string name="applyBtn">Apply</string>
+    <string name="msg_selectvar">Please select a variable</string>
+</resources>

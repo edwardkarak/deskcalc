@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--DIMENSIONS FOR DIGITS FRAGMENT-->
+    <dimen name="dimenDigitsWidth">250dp</dimen>
+
+    <dimen name="dimenWindowMargin">2dp</dimen>
+    <dimen name="dimenAngleViewTextSize">14sp</dimen>
+    <dimen name="dimenMarginTop">3dp</dimen>
+</resources>

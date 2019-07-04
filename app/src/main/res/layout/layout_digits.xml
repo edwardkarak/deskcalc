@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <Button
+            android:id="@+id/dig7"
+            style="@style/calcBtnAppearance"
+
+            android:textStyle="bold"
+            android:textColor="@color/colorDigitBtn"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""/>
+
+        <Button
+            android:id="@+id/dig8"
+            style="@style/calcBtnAppearance"
+
+            android:textStyle="bold"
+            android:textColor="@color/colorDigitBtn"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""/>
+
+        <Button
+            android:id="@+id/dig9"
+            style="@style/calcBtnAppearance"
+
+            android:textStyle="bold"
+            android:textColor="@color/colorDigitBtn"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <Button
+            android:id="@+id/dig4"
+            style="@style/calcBtnAppearance"
+
+            android:textStyle="bold"
+            android:textColor="@color/colorDigitBtn"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""/>
+
+        <Button
+            android:id="@+id/dig5"
+            style="@style/calcBtnAppearance"
+
+            android:textStyle="bold"
+            android:textColor="@color/colorDigitBtn"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""/>
+
+        <Button
+            android:id="@+id/dig6"
+            style="@style/calcBtnAppearance"
+
+            android:textStyle="bold"
+            android:textColor="@color/colorDigitBtn"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <Button
+            android:id="@+id/dig1"
+            style="@style/calcBtnAppearance"
+
+            android:textStyle="bold"
+            android:textColor="@color/colorDigitBtn"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""/>
+
+        <Button
+            android:id="@+id/dig2"
+            style="@style/calcBtnAppearance"
+
+            android:textStyle="bold"
+            android:textColor="@color/colorDigitBtn"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""/>
+
+        <Button
+            android:id="@+id/dig3"
+            style="@style/calcBtnAppearance"
+
+            android:textStyle="bold"
+            android:textColor="@color/colorDigitBtn"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <Button
+            android:id="@+id/decpt"
+            style="@style/calcBtnAppearance"
+
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/decpt"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/dig0"
+            style="@style/calcBtnAppearance"
+
+            android:textStyle="bold"
+            android:textColor="@color/colorDigitBtn"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""/>
+
+        <Button
+            android:id="@+id/opNeg"
+            style="@style/calcBtnAppearance"
+
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/opNeg"/>
+    </LinearLayout>
+</LinearLayout>

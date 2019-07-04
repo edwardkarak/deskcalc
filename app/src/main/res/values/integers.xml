@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="intBkspcWidth">2</integer>
+    <integer name="intScreenOpsWidth">4</integer>
+    <integer name="intMinLinesWindow">2</integer>
+</resources>

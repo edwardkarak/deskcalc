@@ -1,0 +1,43 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mdpi-v4\\values-mdpi-v4.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\app\\src\\main\\res\\values-mdpi\\dimens.xml",
+                    "from": {
+                        "startLines": "6,3,7,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "201,100,256,152",
+                        "endColumns": "53,48,44,47",
+                        "endOffsets": "250,144,296,195"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,109,158,203",
+                        "endColumns": "53,48,44,47",
+                        "endOffsets": "104,153,198,246"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\app\\src\\main\\res\\values-mdpi\\integers.xml",
+                    "from": {
+                        "startLines": "2,4,3",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "57,155,104",
+                        "endColumns": "45,49,49",
+                        "endOffsets": "98,200,149"
+                    },
+                    "to": {
+                        "startLines": "6,7,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "251,297,347",
+                        "endColumns": "45,49,49",
+                        "endOffsets": "292,342,392"
+                    }
+                }
+            ]
+        }
+    ]
+}

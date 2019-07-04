@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:style="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/dimenWindowMargin">
+
+    <!--TODO: handle 5.4" FWVGA-->
+    <!--TODO: handle 5.1" WVGA-->
+
+    <TextView
+        android:id="@+id/angleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/initAngleViewTxt"
+        android:textSize="@dimen/dimenAngleViewTextSize"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"/>
+
+    <EditText
+        android:labelFor="@+id/window"
+        android:id="@+id/window"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/angleView"
+
+        android:background="@drawable/window_border"
+        android:fontFamily="monospace"
+        android:minLines="@integer/intMinLinesWindow"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textIsSelectable="false"
+        android:inputType="textNoSuggestions"
+        android:layout_marginTop="@dimen/dimenMarginTop" />
+
+    <fragment
+        android:id="@+id/screenOps"
+        android:name="net.magnistudios.deskcalculator.ScreenOps"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/digits"
+        android:layout_below="@+id/window"
+        tools:layout="@layout/layout_screen_ops"
+        android:layout_marginTop="@dimen/dimenMarginTop"/>
+
+    <fragment
+        android:id="@+id/digits"
+        android:name="net.magnistudios.deskcalculator.Digits"
+
+        android:layout_width="@dimen/dimenDigitsWidth"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/screenOps"
+        tools:layout="@layout/layout_digits"/>
+
+    <fragment
+        android:id="@+id/basicOps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:name="net.magnistudios.deskcalculator.BasicOps"
+        tools:layout="@layout/layout_basic_ops"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/digits"
+        android:layout_below="@+id/window"
+        android:layout_marginTop="@dimen/dimenMarginTop"/>
+
+    <fragment
+        android:id="@+id/scientific"
+        android:name="net.magnistudios.deskcalculator.Scientific"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/digits"
+        tools:layout="@layout/layout_scientific"
+        android:layout_marginTop="@dimen/dimenMarginTop"/>
+
+</RelativeLayout>
