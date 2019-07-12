@@ -1,160 +1,160 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:2:1-25:12
-MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\5f7b1693d326435afe7bc9f27f121e40\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\fdf4aded4a9db9cb9258a5666afa6089\AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\557b89d63594e77d5bdb5fa88bc64383\AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\004de0fafd0638fec107395ee89ca120\AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\e1116e9dc2d9149c9ed68bc578e0f154\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\f57aff42e886d3566d0c2d9b91834890\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\4db1728a5f650fe85831986d1876e8f3\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\2712308eb2228b4546fa6823d5a8962c\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\9546629ed22bcdbb3c8dae1d8f135f80\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\9e7bf5cd90494c111eab40a63af0234d\AndroidManifest.xml:17:1-31:12
-MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\8c9ee08f05efb43e872fd06a65f39312\AndroidManifest.xml:17:1-30:12
-INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:2:1-25:12
+ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:2:1-25:12
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\b48ef4cd69449a40ce3dedd17c616be1\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\e7658be48e3c4f161f594b8d41aa96ae\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\37d1a30907c9d3eb4b0c6c5b72028613\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\7cf7c377e347df467c1a339e8cb426f7\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\c2350753ddcadadb6cf02e1270b8727d\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\5598bdb1b503ecd7e07baf499bb118e1\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\53a82bbffbfb2bb3e48758544fcb2527\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\43a8201fb0b0872fde8e1ebb09bd1e5d\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\01d13b0502caeac782fb1a582aa1ac4a\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\f1d26661d3e9ea270a394aa9813d2ffc\AndroidManifest.xml:17:1-31:12
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\e0d6e737e3893ceeda13f811c3f8130e\AndroidManifest.xml:17:1-30:12
+INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:2:1-25:12
 	package
-		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:3:5-39
-		INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:3:5-39
+		INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:2:1-25:12
-		INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:2:1-25:12
+		INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:2:1-25:12
-		INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:2:1-25:12
+		INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.VIBRATE
-ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:5:5-66
+ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:5:5-66
 	android:name
-		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:5:22-63
+		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:5:22-63
 application
-ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:7:5-23:19
-MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\5f7b1693d326435afe7bc9f27f121e40\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\5f7b1693d326435afe7bc9f27f121e40\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\fdf4aded4a9db9cb9258a5666afa6089\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\fdf4aded4a9db9cb9258a5666afa6089\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\557b89d63594e77d5bdb5fa88bc64383\AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\557b89d63594e77d5bdb5fa88bc64383\AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\004de0fafd0638fec107395ee89ca120\AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\004de0fafd0638fec107395ee89ca120\AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\e1116e9dc2d9149c9ed68bc578e0f154\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\e1116e9dc2d9149c9ed68bc578e0f154\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\f57aff42e886d3566d0c2d9b91834890\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\f57aff42e886d3566d0c2d9b91834890\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\4db1728a5f650fe85831986d1876e8f3\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\4db1728a5f650fe85831986d1876e8f3\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\2712308eb2228b4546fa6823d5a8962c\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\2712308eb2228b4546fa6823d5a8962c\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\9546629ed22bcdbb3c8dae1d8f135f80\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\9546629ed22bcdbb3c8dae1d8f135f80\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\9e7bf5cd90494c111eab40a63af0234d\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\9e7bf5cd90494c111eab40a63af0234d\AndroidManifest.xml:25:5-29:19
-MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\8c9ee08f05efb43e872fd06a65f39312\AndroidManifest.xml:24:5-28:19
-MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\8c9ee08f05efb43e872fd06a65f39312\AndroidManifest.xml:24:5-28:19
+ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:7:5-23:19
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\b48ef4cd69449a40ce3dedd17c616be1\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\b48ef4cd69449a40ce3dedd17c616be1\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\e7658be48e3c4f161f594b8d41aa96ae\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\e7658be48e3c4f161f594b8d41aa96ae\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\37d1a30907c9d3eb4b0c6c5b72028613\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\37d1a30907c9d3eb4b0c6c5b72028613\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\7cf7c377e347df467c1a339e8cb426f7\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\7cf7c377e347df467c1a339e8cb426f7\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\c2350753ddcadadb6cf02e1270b8727d\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\c2350753ddcadadb6cf02e1270b8727d\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\5598bdb1b503ecd7e07baf499bb118e1\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\5598bdb1b503ecd7e07baf499bb118e1\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\53a82bbffbfb2bb3e48758544fcb2527\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\53a82bbffbfb2bb3e48758544fcb2527\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\43a8201fb0b0872fde8e1ebb09bd1e5d\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\43a8201fb0b0872fde8e1ebb09bd1e5d\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\01d13b0502caeac782fb1a582aa1ac4a\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\01d13b0502caeac782fb1a582aa1ac4a\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\f1d26661d3e9ea270a394aa9813d2ffc\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\f1d26661d3e9ea270a394aa9813d2ffc\AndroidManifest.xml:25:5-29:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\e0d6e737e3893ceeda13f811c3f8130e\AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\e0d6e737e3893ceeda13f811c3f8130e\AndroidManifest.xml:24:5-28:19
 	android:supportsRtl
-		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:12:9-35
+		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:12:9-35
 	android:label
-		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:10:9-41
+		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:10:9-41
 	android:roundIcon
-		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:11:9-54
+		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:11:9-54
 	android:icon
-		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:9:9-43
+		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:9:9-43
 	android:allowBackup
-		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:8:9-35
+		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:8:9-35
 	android:theme
-		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:13:9-40
+		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:13:9-40
 activity#net.magnistudios.deskcalculator.MainActivity
-ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:14:9-22:20
+ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:14:9-22:20
 	android:screenOrientation
-		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:14:79-115
+		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:14:79-115
 	android:name
-		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:14:19-78
+		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:14:19-78
 intent-filter#action:name:android.intent.action.MAIN+action:name:android.intent.action.VIEW+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:15:13-21:29
+ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:15:13-21:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:16:17-69
+ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:16:17-69
 	android:name
-		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:16:25-66
+		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:16:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:18:17-77
+ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:18:17-77
 	android:name
-		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:18:27-74
+		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:18:27-74
 action#android.intent.action.VIEW
-ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:20:17-69
+ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:20:17-69
 	android:name
-		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml:20:25-66
+		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml:20:25-66
 uses-sdk
-INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml
-MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\5f7b1693d326435afe7bc9f27f121e40\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\5f7b1693d326435afe7bc9f27f121e40\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\fdf4aded4a9db9cb9258a5666afa6089\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\fdf4aded4a9db9cb9258a5666afa6089\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\557b89d63594e77d5bdb5fa88bc64383\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\557b89d63594e77d5bdb5fa88bc64383\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\004de0fafd0638fec107395ee89ca120\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\004de0fafd0638fec107395ee89ca120\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\e1116e9dc2d9149c9ed68bc578e0f154\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\e1116e9dc2d9149c9ed68bc578e0f154\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\f57aff42e886d3566d0c2d9b91834890\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\f57aff42e886d3566d0c2d9b91834890\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\4db1728a5f650fe85831986d1876e8f3\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\4db1728a5f650fe85831986d1876e8f3\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\2712308eb2228b4546fa6823d5a8962c\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\2712308eb2228b4546fa6823d5a8962c\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\9546629ed22bcdbb3c8dae1d8f135f80\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\9546629ed22bcdbb3c8dae1d8f135f80\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\9e7bf5cd90494c111eab40a63af0234d\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\9e7bf5cd90494c111eab40a63af0234d\AndroidManifest.xml:21:5-23:58
-MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\8c9ee08f05efb43e872fd06a65f39312\AndroidManifest.xml:20:5-22:41
-MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\8c9ee08f05efb43e872fd06a65f39312\AndroidManifest.xml:20:5-22:41
-INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\b48ef4cd69449a40ce3dedd17c616be1\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\b48ef4cd69449a40ce3dedd17c616be1\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\e7658be48e3c4f161f594b8d41aa96ae\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\e7658be48e3c4f161f594b8d41aa96ae\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\37d1a30907c9d3eb4b0c6c5b72028613\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\37d1a30907c9d3eb4b0c6c5b72028613\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\7cf7c377e347df467c1a339e8cb426f7\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\7cf7c377e347df467c1a339e8cb426f7\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\c2350753ddcadadb6cf02e1270b8727d\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\c2350753ddcadadb6cf02e1270b8727d\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\5598bdb1b503ecd7e07baf499bb118e1\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\5598bdb1b503ecd7e07baf499bb118e1\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\53a82bbffbfb2bb3e48758544fcb2527\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\53a82bbffbfb2bb3e48758544fcb2527\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\43a8201fb0b0872fde8e1ebb09bd1e5d\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\43a8201fb0b0872fde8e1ebb09bd1e5d\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\01d13b0502caeac782fb1a582aa1ac4a\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\01d13b0502caeac782fb1a582aa1ac4a\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\f1d26661d3e9ea270a394aa9813d2ffc\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\f1d26661d3e9ea270a394aa9813d2ffc\AndroidManifest.xml:21:5-23:58
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\e0d6e737e3893ceeda13f811c3f8130e\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\e0d6e737e3893ceeda13f811c3f8130e\AndroidManifest.xml:20:5-22:41
+INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml
 	tools:overrideLibrary
-		ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\5f7b1693d326435afe7bc9f27f121e40\AndroidManifest.xml:23:9-75
+		ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\b48ef4cd69449a40ce3dedd17c616be1\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
-		INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Edward\Documents\prog\AndroidStudioProjects\DeskCalculator\deskcalc\app\src\main\AndroidManifest.xml
 meta-data#android.support.VERSION
-ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\5f7b1693d326435afe7bc9f27f121e40\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\557b89d63594e77d5bdb5fa88bc64383\AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\557b89d63594e77d5bdb5fa88bc64383\AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\004de0fafd0638fec107395ee89ca120\AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\004de0fafd0638fec107395ee89ca120\AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\e1116e9dc2d9149c9ed68bc578e0f154\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\e1116e9dc2d9149c9ed68bc578e0f154\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\f57aff42e886d3566d0c2d9b91834890\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\f57aff42e886d3566d0c2d9b91834890\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\4db1728a5f650fe85831986d1876e8f3\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\4db1728a5f650fe85831986d1876e8f3\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\2712308eb2228b4546fa6823d5a8962c\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\2712308eb2228b4546fa6823d5a8962c\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\9546629ed22bcdbb3c8dae1d8f135f80\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\9546629ed22bcdbb3c8dae1d8f135f80\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\9e7bf5cd90494c111eab40a63af0234d\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\9e7bf5cd90494c111eab40a63af0234d\AndroidManifest.xml:26:9-28:38
+ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\b48ef4cd69449a40ce3dedd17c616be1\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\37d1a30907c9d3eb4b0c6c5b72028613\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\37d1a30907c9d3eb4b0c6c5b72028613\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\7cf7c377e347df467c1a339e8cb426f7\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\7cf7c377e347df467c1a339e8cb426f7\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\c2350753ddcadadb6cf02e1270b8727d\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\c2350753ddcadadb6cf02e1270b8727d\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\5598bdb1b503ecd7e07baf499bb118e1\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\5598bdb1b503ecd7e07baf499bb118e1\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\53a82bbffbfb2bb3e48758544fcb2527\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\53a82bbffbfb2bb3e48758544fcb2527\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\43a8201fb0b0872fde8e1ebb09bd1e5d\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\43a8201fb0b0872fde8e1ebb09bd1e5d\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\01d13b0502caeac782fb1a582aa1ac4a\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\01d13b0502caeac782fb1a582aa1ac4a\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\f1d26661d3e9ea270a394aa9813d2ffc\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\f1d26661d3e9ea270a394aa9813d2ffc\AndroidManifest.xml:26:9-28:38
 	android:value
-		ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\5f7b1693d326435afe7bc9f27f121e40\AndroidManifest.xml:28:13-35
+		ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\b48ef4cd69449a40ce3dedd17c616be1\AndroidManifest.xml:28:13-35
 	android:name
-		ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\5f7b1693d326435afe7bc9f27f121e40\AndroidManifest.xml:27:13-51
+		ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\b48ef4cd69449a40ce3dedd17c616be1\AndroidManifest.xml:27:13-51
 meta-data#android.arch.lifecycle.VERSION
-ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\8c9ee08f05efb43e872fd06a65f39312\AndroidManifest.xml:25:9-27:47
+ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\e0d6e737e3893ceeda13f811c3f8130e\AndroidManifest.xml:25:9-27:47
 	android:value
-		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\8c9ee08f05efb43e872fd06a65f39312\AndroidManifest.xml:27:13-44
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\e0d6e737e3893ceeda13f811c3f8130e\AndroidManifest.xml:27:13-44
 	android:name
-		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\8c9ee08f05efb43e872fd06a65f39312\AndroidManifest.xml:26:13-58
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Edward\.gradle\caches\transforms-2\files-2.1\e0d6e737e3893ceeda13f811c3f8130e\AndroidManifest.xml:26:13-58

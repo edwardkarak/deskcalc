@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -620,7 +621,7 @@ public class MainActivity extends AppCompatActivity
 
     public BigDecimal pi()
     {
-        return BigDecimalMath.pi(MathContext.UNLIMITED);
+        return BigDecimalMath.pi(MathContext.DECIMAL128);
     }
 
     @Override
@@ -717,6 +718,7 @@ public class MainActivity extends AppCompatActivity
     public static class RecallVar extends DialogFragment
     {
         String optionSelected;
+        int idx = -1;
 
         @Override
         public void onActivityCreated(Bundle savedInstanceState)
@@ -742,7 +744,7 @@ public class MainActivity extends AppCompatActivity
                 if (i == -1)
                     Toast.makeText(activity, R.string.msg_selectvar, Toast.LENGTH_SHORT).show();
                 else
-                    optionSelected = ITEMS[i].toString();
+                    optionSelected = ITEMS[idx = i].toString();
             });
 
             if (!ansFmtted.equals("0")) {
@@ -750,8 +752,8 @@ public class MainActivity extends AppCompatActivity
                         activity.ans = BigDecimal.ZERO);
             }
 
-            builder.setPositiveButton(R.string.btnDoRecall, (dialog, id) -> {
-                if (id == -1)
+            builder.setPositiveButton(R.string.btnDoRecall, (DialogInterface dialog, int id) -> {
+                if (idx == -1)
                     Toast.makeText(activity, R.string.msg_selectvar, Toast.LENGTH_SHORT).show();
                 else {
                     int cursel;
@@ -917,7 +919,11 @@ public class MainActivity extends AppCompatActivity
                            for some reason */
                         if (rad.compareTo(a.piDivBy(mkBd("4"))) == 0)
                             stk.push(a.div(mkBd(String.valueOf(Math.sqrt(2))),
-                                           mkBd("2")));
+                                    mkBd("2")));
+                        // or pi
+                        if (rad.compareTo(a.pi()) == 0)
+                            stk.push(BigDecimal.ZERO);
+
                         else {
                             BigDecimal res = BigDecimalMath.sin(rad);
                             stk.push(res);
@@ -936,6 +942,8 @@ public class MainActivity extends AppCompatActivity
                                            mkBd("2")));
                         if (rad.compareTo(a.piDivBy(mkBd("2"))) == 0)
                             stk.push(BigDecimal.ZERO);
+                        if (rad.compareTo(a.pi()) == 0)
+                            stk.push(mkBd("-1"));
                         else {
                             BigDecimal res = BigDecimalMath.cos(rad);
                             stk.push(res);
@@ -948,7 +956,10 @@ public class MainActivity extends AppCompatActivity
 
                         BigDecimal angle = stk.pop();
                         BigDecimal rad = a.toRad(angle);
-                        stk.push(BigDecimalMath.tan(rad));
+                        if (rad.compareTo(a.pi()) == 0)
+                            stk.push(BigDecimal.ZERO);
+                        else
+                            stk.push(BigDecimalMath.tan(rad));
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcAsin)))) {

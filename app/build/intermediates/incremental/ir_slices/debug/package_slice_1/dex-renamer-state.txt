@@ -1,1 +1,4 @@
-#Wed Jul 03 16:00:40 EDT 2019
+#Fri Jul 12 15:22:01 EDT 2019
+base.0=C\:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\deskcalc\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
+path.0=classes.dex
+renamed.0=classes.dex

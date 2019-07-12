@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
+            "outputFile": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\deskcalc\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-2\\files-2.1\\5f7b1693d326435afe7bc9f27f121e40\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-2\\files-2.1\\b48ef4cd69449a40ce3dedd17c616be1\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-2\\files-2.1\\f57aff42e886d3566d0c2d9b91834890\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-2\\files-2.1\\5598bdb1b503ecd7e07baf499bb118e1\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

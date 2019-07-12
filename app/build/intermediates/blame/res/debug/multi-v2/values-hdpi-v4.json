@@ -1,27 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
+            "outputFile": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\deskcalc\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\app\\src\\main\\res\\values-hdpi\\dimens.xml",
+                    "source": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\deskcalc\\app\\src\\main\\res\\values-hdpi\\integers.xml",
                     "from": {
-                        "startLines": "6,3,7,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "201,100,256,152",
-                        "endColumns": "53,48,44,47",
-                        "endOffsets": "250,144,296,195"
+                        "startLines": "2,4,3",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "57,155,104",
+                        "endColumns": "45,49,49",
+                        "endOffsets": "98,200,149"
                     },
                     "to": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,109,158,203",
-                        "endColumns": "53,48,44,47",
-                        "endOffsets": "104,153,198,246"
+                        "startLines": "6,7,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "251,297,347",
+                        "endColumns": "45,49,49",
+                        "endOffsets": "292,342,392"
                     }
                 },
                 {
-                    "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-2\\files-2.1\\5f7b1693d326435afe7bc9f27f121e40\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-2\\files-2.1\\b48ef4cd69449a40ce3dedd17c616be1\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -40,20 +40,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\app\\src\\main\\res\\values-hdpi\\integers.xml",
+                    "source": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\deskcalc\\app\\src\\main\\res\\values-hdpi\\dimens.xml",
                     "from": {
-                        "startLines": "2,4,3",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "57,155,104",
-                        "endColumns": "45,49,49",
-                        "endOffsets": "98,200,149"
+                        "startLines": "6,3,7,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "201,100,256,152",
+                        "endColumns": "53,48,44,47",
+                        "endOffsets": "250,144,296,195"
                     },
                     "to": {
-                        "startLines": "6,7,8",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "251,297,347",
-                        "endColumns": "45,49,49",
-                        "endOffsets": "292,342,392"
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,109,158,203",
+                        "endColumns": "53,48,44,47",
+                        "endOffsets": "104,153,198,246"
                     }
                 }
             ]

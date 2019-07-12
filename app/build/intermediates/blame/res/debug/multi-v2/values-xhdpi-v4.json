@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xhdpi-v4\\values-xhdpi-v4.xml",
+            "outputFile": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\deskcalc\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xhdpi-v4\\values-xhdpi-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\app\\src\\main\\res\\values-xhdpi\\integers.xml",
+                    "source": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\deskcalc\\app\\src\\main\\res\\values-xhdpi\\integers.xml",
                     "from": {
                         "startLines": "2,4,3",
                         "startColumns": "4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\app\\src\\main\\res\\values-xhdpi\\dimens.xml",
+                    "source": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\deskcalc\\app\\src\\main\\res\\values-xhdpi\\dimens.xml",
                     "from": {
                         "startLines": "6,3,7,5",
                         "startColumns": "4,4,4,4",

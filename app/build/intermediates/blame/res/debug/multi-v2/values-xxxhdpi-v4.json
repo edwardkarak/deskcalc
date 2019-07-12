@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xxxhdpi-v4\\values-xxxhdpi-v4.xml",
+            "outputFile": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\deskcalc\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xxxhdpi-v4\\values-xxxhdpi-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\app\\src\\main\\res\\values-xxxhdpi\\dimens.xml",
-                    "from": {
-                        "startLines": "6,3,7,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "201,100,256,152",
-                        "endColumns": "53,48,45,47",
-                        "endOffsets": "250,144,297,195"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,109,158,204",
-                        "endColumns": "53,48,45,47",
-                        "endOffsets": "104,153,199,247"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\app\\src\\main\\res\\values-xxxhdpi\\integers.xml",
+                    "source": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\deskcalc\\app\\src\\main\\res\\values-xxxhdpi\\integers.xml",
                     "from": {
                         "startLines": "2,4,3",
                         "startColumns": "4,4,4",
@@ -35,6 +18,23 @@
                         "startOffsets": "252,298,348",
                         "endColumns": "45,49,49",
                         "endOffsets": "293,343,393"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\deskcalc\\app\\src\\main\\res\\values-xxxhdpi\\dimens.xml",
+                    "from": {
+                        "startLines": "6,3,7,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "201,100,256,152",
+                        "endColumns": "53,48,45,47",
+                        "endOffsets": "250,144,297,195"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,109,158,204",
+                        "endColumns": "53,48,45,47",
+                        "endOffsets": "104,153,199,247"
                     }
                 }
             ]
