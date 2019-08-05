@@ -14,10 +14,6 @@ public class ShuntingYard
     private static final String LPAREN = "(";
     private static final String RPAREN = ")";
 
-    // TODO: implement saving of angle mode change
-    // Write last angle mode used into file upon exit. Next time app launches,
-    // read from this file to set the current angle mode
-
     // TODO: next vers.: physical constants menu (G, g, Avogadro, mass of earth, etc.)
 
     /* 1. Parenthesization,
@@ -323,7 +319,7 @@ public class ShuntingYard
     {
         return str.equals("sin") || str.equals("cos") || str.equals("tan")
             || str.equals("asin") || str.equals("acos") || str.equals("atan")
-            || str.equals("sinh") || str.equals("cosh") || str.equals("tanh")
+            || str.equals("atan2") || str.equals("sinh") || str.equals("cosh") || str.equals("tanh")
             || str.equals("asinh") || str.equals("acosh") || str.equals("atanh")
             || str.equals("\u221A") || str.equals("log") || str.equals("ln")
             || str.equals("exp") || str.equals("nrt") || str.equals("gcf")

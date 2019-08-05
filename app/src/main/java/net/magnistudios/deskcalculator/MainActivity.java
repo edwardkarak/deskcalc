@@ -15,6 +15,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,6 +30,7 @@ import com.myapp.deskcalculator.R;
 
 import java.lang.ref.WeakReference;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.math.MathContext;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -205,9 +207,16 @@ public class MainActivity extends AppCompatActivity
                 text = text.substring(0, len - 4);
             else if (len >= 3 && ShuntingYard.isFunc(text.substring(len - 3, len - 1)))
                 text = text.substring(0, len - 3);
+            else if (len >= 2 && ShuntingYard.isFunc(text.substring(len - 2, len - 1)))
+                text = text.substring(0, len - 2);
+            else if (len == 1 && ShuntingYard.isFunc(text.substring(len - 1, len - 1)))
+                text = text.substring(0, len - 1);
             else
                 text = text.substring(0, len - 1);
         }
+
+        else if (text.substring(len - 1, len).equals("\u221A"))
+            text = text.substring(0, len - 1);
 
         else if (text.substring(len - 3, len).equals("Mod") ||
                 text.substring(len - 3, len).equals("Ans")) {
@@ -226,23 +235,23 @@ public class MainActivity extends AppCompatActivity
         BasicOps bo = (BasicOps) getSupportFragmentManager().findFragmentById(R.id.basicOps);
         bo.setEnterPressedBefore(false);
 
+        int clr = getResources().getColor(
+                R.color.colorAccent);
+
         ToggleButton togg = (ToggleButton) findViewById(R.id.toggInv);
-        togg.setTextColor(getResources().getColor(R.color.colorAccent));
+        togg.setTextColor(clr);
 
         Button sciNotOrFuncLog = (Button) findViewById(R.id.opSciNotOrFuncLog);
         sciNotOrFuncLog.setText(getResources().getString(R.string.funcLog));
-        sciNotOrFuncLog.setTextColor(getResources().getColor(
-                R.color.colorAccent));
+        sciNotOrFuncLog.setTextColor(clr);
 
         Button funcExpOrFuncLog = (Button) findViewById(R.id.funcExpOrFuncLn);
         funcExpOrFuncLog.setText(getResources().getString(R.string.funcLn));
-        funcExpOrFuncLog.setTextColor(getResources().getColor(
-                R.color.colorAccent));
+        funcExpOrFuncLog.setTextColor(clr);
 
         Button opModOrOpFact = (Button) findViewById(R.id.opModOrOpFact);
         opModOrOpFact.setText(getResources().getString(R.string.opFact));
-        opModOrOpFact.setTextColor(getResources().getColor(
-                R.color.colorAccent));
+        opModOrOpFact.setTextColor(clr);
 
         ImageButton funcSqrtOrFuncNrt = findViewById(
                 R.id.funcSqrtOrFuncNrt);
@@ -250,19 +259,24 @@ public class MainActivity extends AppCompatActivity
 
         Button lcm = findViewById(R.id.funcGcfOrFuncLcm);
         lcm.setText(getResources().getString(R.string.funcLcm));
-        lcm.setTextColor(getResources().getColor(R.color.colorAccent));
+        lcm.setTextColor(clr);
 
         Button trigFunc = findViewById(R.id.funcSinOrFuncAsin);
         trigFunc.setText(getResources().getString(trigMode == TrigMode.CIRC ? R.string.funcAsin : R.string.funcAsinh));
-        trigFunc.setTextColor(getResources().getColor(R.color.colorAccent));
+        trigFunc.setTextColor(clr);
 
         trigFunc = findViewById(R.id.funcCosOrFuncAcos);
         trigFunc.setText(getResources().getString(trigMode == TrigMode.CIRC ? R.string.funcAcos : R.string.funcAcosh));
-        trigFunc.setTextColor(getResources().getColor(R.color.colorAccent));
+        trigFunc.setTextColor(clr);
 
         trigFunc = findViewById(R.id.funcTanOrFuncAtan);
         trigFunc.setText(getResources().getString(trigMode == TrigMode.CIRC ? R.string.funcAtan : R.string.funcAtanh));
-        trigFunc.setTextColor(getResources().getColor(R.color.colorAccent));
+        trigFunc.setTextColor(clr);
+
+        trigFunc = findViewById(R.id.immDmsOrFuncAtan2);
+        trigFunc.setText(getResources().getString(R.string.funcAtan2));
+        trigFunc.setTextColor(clr);
+        trigFunc.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
     }
 
     @Override
@@ -308,6 +322,11 @@ public class MainActivity extends AppCompatActivity
         trigFunc = (Button) findViewById(R.id.funcTanOrFuncAtan);
         trigFunc.setText(getResources().getString(trigMode == TrigMode.CIRC ? R.string.funcTan : R.string.funcTanh));
         trigFunc.setTextColor(clr);
+
+        trigFunc = findViewById(R.id.immDmsOrFuncAtan2);
+        trigFunc.setText(getResources().getString(R.string.immDms));
+        trigFunc.setTextColor(clr);
+        trigFunc.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
     }
 
     @Override
@@ -577,7 +596,7 @@ public class MainActivity extends AppCompatActivity
 
         // misleading name--log means natural log
 
-        return div(BigDecimalMath.log(d), LN10);
+        return div(ln(d), LN10);    // log change of base rule
     }
 
     public BigDecimal atanh(BigDecimal d)
@@ -587,21 +606,166 @@ public class MainActivity extends AppCompatActivity
         BigDecimal OnePlusX = d.add(BigDecimal.ONE);
         BigDecimal OneMinusX = d.subtract(BigDecimal.ONE);
 
-        return Half.multiply(BigDecimalMath.log(div(OnePlusX, OneMinusX)));
+        return Half.multiply(ln(div(OnePlusX, OneMinusX)));
     }
 
-    public BigDecimal pow(BigDecimal x, BigDecimal b)
+    public BigDecimal ln(BigDecimal arg)
     {
-        if (x.compareTo(BigDecimal.ZERO) < 0) {
-            // if exponent is even, (-x)^b == x^b
-            if (b.remainder(mkBd("2")).compareTo(BigDecimal.ZERO) == 0)
-                return BigDecimalMath.pow(x.negate(), b);
-                // if exponent is odd, (-x)^b == -1 * (x^b)
-            else
-                return BigDecimalMath.pow(x, b).negate();
+        try {
+            return BigDecimalMath.log(arg);
+        } catch (ArithmeticException e) {
+            throw new ArithmeticException(getResStr(R.string.err_nonreal));
         }
-        else
-            return BigDecimalMath.pow(x, b);
+    }
+
+    public BigDecimal pow(BigDecimal a, BigDecimal b)
+    {
+        BigDecimal result = BigDecimal.ZERO;
+
+        if (a.compareTo(BigDecimal.ZERO) == 0 && b.compareTo(BigDecimal.ZERO) == 0)
+            throw new ArithmeticException(getString(R.string.err_zero_to_zeroth));
+
+        if (b.compareTo(BigDecimal.ONE) == 0)
+            return a;
+
+        // in general, a^b == exp(b*ln a). However, we must handle non-positive values of a.
+        else {
+            if (a.compareTo(BigDecimal.ZERO) == 0) {
+                if (b.compareTo(BigDecimal.ZERO) > 0)
+                    return BigDecimal.ZERO;
+                if (b.compareTo(BigDecimal.ZERO) < 0)
+                    throw new ArithmeticException(getResStr(R.string.err_zeroDivisor));
+            }
+
+            if (a.compareTo(BigDecimal.ZERO) < 0) {
+                // if b is positive fraction
+                if (b.compareTo(BigDecimal.ZERO) > 0 && b.compareTo(BigDecimal.ONE) < 0)  {
+                    // NOTE: only works for rational exponent
+                    // a ^ (p/q) = nrt(q, pow(a, p))
+                    Fraction f = new Fraction(b, BigDecimal.ONE);
+                    f.simplify();
+
+                    BigInteger n = f.getDen().toBigInteger();
+                    BigDecimal radicand = pow(a, f.getNum());
+                    if (n.compareTo(new BigInteger("2")) == 0)
+                        result = BigDecimalMath.sqrt(radicand);
+                    else
+                        result = nrt(n, radicand);
+                }
+                // is exponent is even, (-a)^b == a^b
+                if (b.remainder(mkBd("2")).compareTo(BigDecimal.ZERO) == 0)
+                    result = BigDecimalMath.exp(b.multiply(BigDecimalMath.log(a.negate())));
+
+                // if exponent is odd, (-a)^b == -(a^b)
+                if (b.remainder(mkBd("2")).compareTo(BigDecimal.ZERO) != 0)
+                    result = BigDecimalMath.exp(b.multiply(BigDecimalMath.log(a.negate()))).negate();
+
+            }
+
+            if (a.compareTo(BigDecimal.ZERO) > 0)
+                result = BigDecimalMath.exp(b.multiply(BigDecimalMath.log(a)));
+        }
+        return result;
+    }
+
+    public BigDecimal nrt(BigInteger n, BigDecimal radicand)
+    {
+        BigDecimal result;
+        if (radicand.compareTo(BigDecimal.ZERO) < 0) {
+            if (n.remainder(new BigInteger("2")).compareTo(BigInteger.ZERO) == 0) {
+                if (radicand.compareTo(BigDecimal.ZERO) < 0)    // even root of negative number is nonreal
+                    throw new ArithmeticException(getResStr(R.string.err_nonreal));
+                else
+                    result = BigDecimalMath.root(n.intValue(), radicand.negate());
+            }
+            else
+                result = BigDecimalMath.root(n.intValue(), radicand.negate()).negate();
+        } else
+            result = BigDecimalMath.root(n.intValue(), radicand);
+
+        return result;
+    }
+
+    final BigDecimal PI_OV_2 = mkBd("1.570796326794896619231321691639751442098584699687552910487472296153908203143104499314017412671058533991074043256641153323546922304775291115862679704064240558725142051350969260552779822311474477465190982214405487832966723064237824116893391582635600954572824283461730174305227163324106696803630124570636862293503303157794");
+    final BigDecimal PI_OV_3 = mkBd("1.047197551196597746154214461093168");
+    final BigDecimal PI_OV_4 = mkBd("0.785398163397448309615660845819875721049292349843776455243736148076954101571552249657008706335529266995537021628320576661773461152387645557931339852032120279362571025675484630276389911155737238732595491107202743916483361532118912058446695791317800477286412141730865087152613581662053348401815062285318431146751651578897");
+    final BigDecimal PI_OV_6 = mkBd("0.5235987755982988730771072305465838");
+
+    final BigDecimal RT2_OV_2 = mkBd("0.70710678118654752440084436210484903928483593768847403658833986899536623923105351942519376716382078636750692311545614851246241802792536860632206074854996791570661133296375279637789997525057639103028573505477998580298513726729843100736425870932044459930477616461524215435716072541988130181399762570399484362669827316590441482031030762917619752737287514387998086491778761016876592850567718730170424942358019344998534950240751527201389515822712391153424646845931079028923155579833435650650780928449361861764425463243062474885771091671021428430300734123603857175");
+    final BigDecimal RT3_OV_2 = mkBd("0.866025403784438646763723170752936183471402626905190314027903489725966508454400018540573093378624287837813070707703351514984972547499476239405827756047186824264046615951152791033987410050542337461632507656171633451661443325336127334460915");
+    final BigDecimal HALF = mkBd("0.5");
+
+    // x in radians
+    public BigDecimal sin(BigDecimal x)
+    {
+        if (isWholeNumber(div(x, pi())))
+            return BigDecimal.ZERO;     // sin(pi*n) = 0. n an integer
+
+        if  (x.compareTo(PI_OV_2) == 0)
+            return BigDecimal.ONE;
+
+        if (x.compareTo(PI_OV_3) == 0)
+            return RT3_OV_2;
+
+        if (x.compareTo(PI_OV_4) == 0)
+            return RT2_OV_2;
+
+        if (x.compareTo(PI_OV_6) == 0)
+            return HALF;
+
+        return BigDecimalMath.sin(x);
+    }
+
+    // x in radians
+    public BigDecimal cos(BigDecimal x)
+    {
+        BigDecimal decN = div(x, pi());
+        BigInteger n;
+        if (isWholeNumber(decN)) {
+            // cos(pi*n) = -1 for odd integer n; = +1 for even integer n
+            n = decN.toBigInteger();
+            if (n.remainder(new BigInteger("2")).compareTo(BigInteger.ZERO) == 0)
+                return BigDecimal.ONE;
+            else
+                return BigDecimal.ONE.negate();
+        }
+
+        if  (x.compareTo(PI_OV_2) == 0)
+            return BigDecimal.ZERO;
+
+        if (x.compareTo(PI_OV_3) == 0)
+            return HALF;
+
+        if (x.compareTo(PI_OV_4) == 0)
+            return RT2_OV_2;
+
+        if (x.compareTo(PI_OV_6) == 0)
+            return RT3_OV_2;
+
+        return BigDecimalMath.cos(x);
+    }
+
+    // x in radians
+    public BigDecimal tan(BigDecimal x)
+    {
+        final BigDecimal RT3 = new BigDecimal("1.73205080756887729352744634150587236694280525381038062805580697945193301690880003708114618675724857567562614141540670302996994509499895247881165551209437364852809323190230558206797482010108467492326501531234326690332288665067225466892183");
+        final BigDecimal RECIP_RT3 = new BigDecimal("0.5773502691896257645091487805019575");
+        if (isWholeNumber(div(x, pi())))
+            return BigDecimal.ZERO;     // tan(pi*n) = 0. n an integer
+
+        if  (x.compareTo(PI_OV_2) == 0)
+            throw new ArithmeticException("Tangent of π/2 is undefined");
+
+        if (x.compareTo(PI_OV_3) == 0)
+            return RT3;
+
+        if (x.compareTo(PI_OV_4) == 0)
+            return BigDecimal.ONE;
+
+        if (x.compareTo(PI_OV_6) == 0)
+            return RECIP_RT3;
+
+        return BigDecimalMath.tan(x);
     }
 
     public boolean isWholeNumber(BigDecimal number)
@@ -611,7 +775,10 @@ public class MainActivity extends AppCompatActivity
 
     public BigDecimal div(BigDecimal a, BigDecimal b)
     {
-        return a.divide(b, SCALE, BigDecimal.ROUND_HALF_UP);
+        if (b.compareTo(BigDecimal.ZERO) == 0)
+            throw new ArithmeticException(getResStr(R.string.err_zeroDivisor));
+        else
+            return a.divide(b, SCALE, BigDecimal.ROUND_HALF_UP);
     }
 
     public BigDecimal piDivBy(BigDecimal den)
@@ -848,15 +1015,14 @@ public class MainActivity extends AppCompatActivity
                         if (stk.size() < 2)
                             throw new WrongNumOperands();
                         BigDecimal op2 = stk.pop();
-                        BigDecimal res = a.pow(stk.pop(), op2);
-                        stk.push(res);
+                        stk.push(a.pow(stk.pop(), op2));
                     }
 
                     if (tok.equals(a.getResStr(R.string.sym_opSquare))) {
                         if (stk.size() < 1)
                             throw new WrongNumOperands();
                         BigDecimal base = stk.pop();
-                        stk.push(base.pow(2));
+                        stk.push(base.multiply(base));
                     }
 
                     if (tok.equals(a.getResStr(R.string.sym_opMod))) {
@@ -871,12 +1037,12 @@ public class MainActivity extends AppCompatActivity
                         if (stk.size() < 1)
                             throw new WrongNumOperands();
                         BigDecimal op = stk.pop();
+
                         if (op.compareTo(BigDecimal.ZERO) < 0)
-                            throw new ArithmeticException("Cannot take " +
-                                                                  "negative factorial");
+                            throw new ArithmeticException(a.getString(R.string.err_negFact));
                         if (!a.isWholeNumber(op))
-                            throw new ArithmeticException("Cannot take " +
-                                                                  "fractional factorial");
+                            throw new ArithmeticException(a.getString(R.string.err_negFact));
+
                         BigDecimal prod = a.fact(op);
                         stk.push(prod);
                     }
@@ -914,20 +1080,8 @@ public class MainActivity extends AppCompatActivity
 
                         BigDecimal angle = stk.pop();
                         BigDecimal rad = a.toRad(angle);
-                        /* if arg is PI/4 rad, return sqrt(2)/2;
-                           sin does not work with an angle of PI/4
-                           for some reason */
-                        if (rad.compareTo(a.piDivBy(mkBd("4"))) == 0)
-                            stk.push(a.div(mkBd(String.valueOf(Math.sqrt(2))),
-                                    mkBd("2")));
-                        // or pi
-                        if (rad.compareTo(a.pi()) == 0)
-                            stk.push(BigDecimal.ZERO);
 
-                        else {
-                            BigDecimal res = BigDecimalMath.sin(rad);
-                            stk.push(res);
-                        }
+                        stk.push(a.sin(rad));
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcCos)))) {
@@ -936,18 +1090,7 @@ public class MainActivity extends AppCompatActivity
 
                         BigDecimal angle = stk.pop();
                         BigDecimal rad = a.toRad(angle);
-                        // if arg is PI/4 rad, return sqrt(2)/2; cos does not work with an angle of PI/4 for some reason
-                        if (rad.compareTo(a.piDivBy(mkBd("4"))) == 0)
-                            stk.push(a.div(mkBd(String.valueOf(Math.sqrt(2))),
-                                           mkBd("2")));
-                        if (rad.compareTo(a.piDivBy(mkBd("2"))) == 0)
-                            stk.push(BigDecimal.ZERO);
-                        if (rad.compareTo(a.pi()) == 0)
-                            stk.push(mkBd("-1"));
-                        else {
-                            BigDecimal res = BigDecimalMath.cos(rad);
-                            stk.push(res);
-                        }
+                        stk.push(a.cos(rad));
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcTan)))) {
@@ -956,10 +1099,7 @@ public class MainActivity extends AppCompatActivity
 
                         BigDecimal angle = stk.pop();
                         BigDecimal rad = a.toRad(angle);
-                        if (rad.compareTo(a.pi()) == 0)
-                            stk.push(BigDecimal.ZERO);
-                        else
-                            stk.push(BigDecimalMath.tan(rad));
+                        stk.push(a.tan(rad));
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcAsin)))) {
@@ -987,6 +1127,17 @@ public class MainActivity extends AppCompatActivity
                         BigDecimal side = stk.pop();
                         BigDecimal angle = BigDecimalMath.atan(side);
                         stk.push(a.radsToCurrent(angle));
+                    }
+
+                    if (tok.equals(remLast(a.getResStr(R.string.sym_funcAtan2)))) {
+                        if (stk.size() < 2)
+                            throw new WrongNumArgs(tok);
+
+                        BigDecimal op2 = stk.pop();
+                        BigDecimal op1 = stk.pop();
+
+                        BigDecimal angle = a.radsToCurrent(BigDecimalMath.atan2(op1, op2));
+                        stk.push(angle);
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcSinh)))) {
@@ -1068,9 +1219,7 @@ public class MainActivity extends AppCompatActivity
                             throw new WrongNumArgs(tok);
 
                         BigDecimal arg = stk.pop();
-                        // misleading name--it is actually ln
-                        BigDecimal res = BigDecimalMath.log(arg);
-                        stk.push(res);
+                        stk.push(a.ln(arg));
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcExp)))) {
@@ -1085,12 +1234,9 @@ public class MainActivity extends AppCompatActivity
                         if (stk.size() < 2)
                             throw new WrongNumArgs(tok, 2);
 
-                        // nrt(n, x) = x ^ (1/n)
-
                         BigDecimal radicand = stk.pop();
                         BigDecimal n = stk.pop();
-                        n = a.div(BigDecimal.ONE, n);
-                        stk.push(a.pow(radicand, n));
+                        stk.push(a.nrt(n.toBigInteger(), radicand));
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcGcf)))) {
@@ -1153,10 +1299,11 @@ public class MainActivity extends AppCompatActivity
                     activity.createOKDlg(activity.getResStr(R.string.errTitle_syntax), e.getMessage());
                 } catch (ArithmeticException e) {
                     activity.createOKDlg(activity.getResStr(R.string.errTitle_dom), e.getMessage());
-                } catch (Throwable e) {     //sometimes get IllegalArgumentException, BigDecimal, precision negative
+                } catch (Throwable e) {     // TODO: sometimes get IllegalArgumentException, BigDecimal, precision negative
                     activity.createOKDlg(activity.getResStr(R.string.errTitle_other), e.getMessage());
                 }
             }
         }
     }
 }
+// TODO: import c++ project for unit conversion

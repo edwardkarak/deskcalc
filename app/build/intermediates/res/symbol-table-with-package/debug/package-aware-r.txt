@@ -714,7 +714,7 @@ id icon
 id icon_group
 id ifRoom
 id image
-id immDms
+id immDmsOrFuncAtan2
 id info
 id italic
 id line1
@@ -921,15 +921,20 @@ string enter
 string errTitle_dom
 string errTitle_other
 string errTitle_syntax
+string err_fracFact
+string err_negFact
+string err_nonreal
 string err_ovflow
 string err_parenMismatch
 string err_undflow
 string err_zeroDivisor
+string err_zero_to_zeroth
 string funcAcos
 string funcAcosh
 string funcAsin
 string funcAsinh
 string funcAtan
+string funcAtan2
 string funcAtanh
 string funcCos
 string funcCosh
@@ -981,6 +986,7 @@ string sym_funcAcosh
 string sym_funcAsin
 string sym_funcAsinh
 string sym_funcAtan
+string sym_funcAtan2
 string sym_funcAtanh
 string sym_funcCos
 string sym_funcCosh

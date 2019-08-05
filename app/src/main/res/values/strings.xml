@@ -1,6 +1,6 @@
 <!DOCTYPE resources [
     <!ENTITY appname "Desk Calculator">
-    <!ENTITY author "Edward Karak for MagniStudios, Inc.">
+    <!ENTITY author "Edward Karak">
     ]>
 <resources>
     <string name="app_name">&appname;</string>
@@ -43,6 +43,7 @@
 
     <string name="funcTan">tan</string>
     <string name="funcAtan">atan</string>
+    <string name="funcAtan2">atan2</string>
     <string name="funcTanh">tanh</string>
     <string name="funcAtanh">atanh</string>
 
@@ -89,6 +90,7 @@
 
     <string name="sym_funcTan">tan(</string>
     <string name="sym_funcAtan">atan(</string>
+    <string name="sym_funcAtan2">atan2(</string>
 
     <string name="sym_funcSinh">sinh(</string>
     <string name="sym_funcAsinh">asinh(</string>
@@ -127,12 +129,16 @@
     <!--OTHER-->
     <string name="aboutTitle">About &appname;</string>
     <string name="aboutMsg">Desk calculator for Android\nCopyright &#169;MMXIX by &author;</string>
-    <string name="err_zeroDivisor">Error: Zero divisor</string>
+    <string name="err_zeroDivisor">Zero divisor</string>
+    <string name="err_zero_to_zeroth">Zero to the zeroth power is undefined</string>
     <string name="errTitle_dom">Domain Error</string>
     <string name="errTitle_syntax">Syntax Error</string>
-    <string name="err_ovflow">Error: Overflow</string>
-    <string name="err_undflow">Error: Underflow</string>
-    <string name="err_parenMismatch">Error: Mismatched parenthesis</string>
+    <string name="err_ovflow">Overflow</string>
+    <string name="err_undflow">Underflow</string>
+    <string name="err_parenMismatch">Mismatched parenthesis</string>
+    <string name="err_nonreal">Nonreal answer</string>
+    <string name="err_negFact">Cannot take negative factorial</string>
+    <string name="err_fracFact">Cannot take fractional factorial</string>
     <string name="errTitle_other">Unknown Error</string>
     <string name="title_rclDlg">Recall a Variable</string>
     <string name="title_vibeSettings">Vibration Settings</string>

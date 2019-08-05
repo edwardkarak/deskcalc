@@ -161,7 +161,7 @@
             android:text="@string/funcTan"/>
 
         <Button
-            android:id="@+id/immDms"
+            android:id="@+id/immDmsOrFuncAtan2"
             style="@style/calcBtnAppearance"
 
             android:layout_height="wrap_content"

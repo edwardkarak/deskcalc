@@ -108,9 +108,11 @@ public class Scientific extends Fragment
                         case "rcl":
                             translator.rclPressed();
                             break;
-                        case "immDms":
-                            translator.dms();
-                            break;
+                        case "immDmsOrFuncAtan2":
+                            if (!isToggleOn()) {
+                                translator.dms();
+                                break;
+                            }   // fall-through if toggle is on
                         default:
                             if (KeyHandling.isDeadViewId(isToggleOn(), viewId))
                                 throw new RuntimeException("Dead key--should be handled");

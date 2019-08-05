@@ -81,7 +81,7 @@ public class BasicOps extends Fragment
                         }
                     } else {
                         String labelId = KeyHandling.getLabelId(false, viewId);
-                        String symId = KeyHandling.getSymId(labelId);
+                        String symId = KeyHandling.getSymId(labelId, false);
                         String symval = KeyHandling.getStrResText(getActivity(), symId);
 
                         int curPos = main.window.getSelectionEnd();

@@ -74,15 +74,17 @@ public class KeyHandling {
     static public boolean isDeadViewId(boolean isTogglePressed, String viewId)
     {
         String labelId = getLabelId(isTogglePressed, viewId);
-        return isDeadKey(labelId);
+        return isDeadKey(labelId, isTogglePressed);
     }
 
     // dead keys are those that do not generate anything on the display
-    static public boolean isDeadKey(String labelId)
+    static public boolean isDeadKey(String labelId, boolean isTogglePressed)
     {
         //if (strRes.startsWith("sym_"))
             // strRes = strRes.substring("sym_".length());
 
+        if (isTogglePressed && labelId.equals("immDmsOrFuncAtan2"))
+            return false;
         return labelId.equals("toggInv") || labelId.equals("enter") ||
                 labelId.equals("convInPi") || labelId.equals("rcl") ||
                 labelId.equals("clr") || labelId.equals("ce") ||
@@ -114,6 +116,9 @@ public class KeyHandling {
         if (viewId.startsWith("func"))
             return getDiFunction(invPressed, viewId, "func");
 
+        if (viewId.equals("immDmsOrFuncAtan2"))
+            return getDiFunction(invPressed, viewId, "imm");
+
         if (viewId.startsWith("togg") || viewId.startsWith("var") ||
                 viewId.startsWith("const") || viewId.startsWith("imm") ||
                 viewId.equals("enter") || viewId.equals("decpt") ||
@@ -127,9 +132,9 @@ public class KeyHandling {
     }
 
 
-    static public String getSymId(String labelId)
+    static public String getSymId(String labelId, boolean isTogglePressed)
     {
-        if (labelId.length() == 1 && Character.isDigit(labelId.charAt(0)) || isDeadKey(labelId))
+        if (labelId.length() == 1 && Character.isDigit(labelId.charAt(0)) || isDeadKey(labelId, isTogglePressed))
             return labelId;
         return "sym_" + labelId;
     }
@@ -158,8 +163,8 @@ public class KeyHandling {
     static public String getSymFromViewId(Context ctx, boolean isToggleOn, String viewId)
     {
         String labelId = KeyHandling.getLabelId(isToggleOn, viewId);
-        String symId = KeyHandling.getSymId(labelId);
-        if (isDeadKey(labelId) || Character.isDigit(symId.charAt(0)))
+        String symId = KeyHandling.getSymId(labelId, isToggleOn);
+        if (isDeadKey(labelId, isToggleOn) || Character.isDigit(symId.charAt(0)))
             return labelId;
         if (Scientific.isTrigFunc(viewId) && ((MainActivity) ctx).isHypMode()) {
             switch (viewId) {
@@ -169,6 +174,7 @@ public class KeyHandling {
                     return getSymFromTrigViewIdHyp(isToggleOn, "cos");
                 case "funcTanOrFuncAtan":
                     return getSymFromTrigViewIdHyp(isToggleOn, "tan");
+                // no hyperbolic equivalent of atan2
             }
         }
         return KeyHandling.getStrResText(ctx, symId);
