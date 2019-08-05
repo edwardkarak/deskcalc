@@ -369,6 +369,8 @@ public class MainActivity extends AppCompatActivity
 
     // TODO: Too many args. are accepted
 
+    // TODO: Save vibration state settings
+
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch (item.getItemId()) {
