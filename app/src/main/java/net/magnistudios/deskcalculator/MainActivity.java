@@ -367,6 +367,8 @@ public class MainActivity extends AppCompatActivity
 
     // TODO: When in Split screen mode, hide scientific
 
+    // TODO: Too many args. are accepted
+
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch (item.getItemId()) {
