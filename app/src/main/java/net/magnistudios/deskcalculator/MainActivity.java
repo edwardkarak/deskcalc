@@ -1045,7 +1045,7 @@ public class MainActivity extends AppCompatActivity
                         if (op.compareTo(BigDecimal.ZERO) < 0)
                             throw new ArithmeticException(a.getString(R.string.err_negFact));
                         if (!a.isWholeNumber(op))
-                            throw new ArithmeticException(a.getString(R.string.err_negFact));
+                            throw new ArithmeticException(a.getString(R.string.err_fracFact));
 
                         BigDecimal prod = a.fact(op);
                         stk.push(prod);
