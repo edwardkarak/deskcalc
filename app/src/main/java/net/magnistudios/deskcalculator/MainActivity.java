@@ -319,7 +319,7 @@ public class MainActivity extends AppCompatActivity
         trigFunc.setText(getResources().getString(trigMode == TrigMode.CIRC ? R.string.funcCos : R.string.funcCosh));
         trigFunc.setTextColor(clr);
 
-        trigFunc = (Button) findViewById(R.id.funcTanOrFuncAtan);
+        trigFunc = findViewById(R.id.funcTanOrFuncAtan);
         trigFunc.setText(getResources().getString(trigMode == TrigMode.CIRC ? R.string.funcTan : R.string.funcTanh));
         trigFunc.setTextColor(clr);
 
@@ -327,8 +327,6 @@ public class MainActivity extends AppCompatActivity
         trigFunc.setText(getResources().getString(R.string.immDms));
         trigFunc.setTextColor(clr);
         trigFunc.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
-
-        int i;
     }
 
     @Override
