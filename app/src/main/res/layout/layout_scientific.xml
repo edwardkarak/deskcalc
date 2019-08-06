@@ -6,7 +6,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="6">
+        android:weightSum="6"
+        android:baselineAligned="false">
 
         <ToggleButton
             android:id="@+id/toggInv"
@@ -70,7 +71,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="6">
+        android:weightSum="6"
+        android:baselineAligned="false">
 
         <Button
             android:id="@+id/opSciNotOrFuncLog"
@@ -131,7 +133,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="6">
+        android:weightSum="6"
+        android:baselineAligned="false">
 
         <Button
             android:id="@+id/funcSinOrFuncAsin"
@@ -167,7 +170,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/immDms"
-            android:textSize="10sp"/>
+            android:textSize="10.32sp"/>
 
         <Button
             android:id="@+id/rcl"
@@ -176,7 +179,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/rcl"
-            android:textSize="10sp"/>
+            android:textSize="11.4sp"/>
 
         <Button
             android:id="@+id/varAns"
@@ -192,7 +195,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="6">
+        android:weightSum="6"
+        android:baselineAligned="false">
 
 
     </LinearLayout>
