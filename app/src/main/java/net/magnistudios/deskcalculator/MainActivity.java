@@ -327,6 +327,8 @@ public class MainActivity extends AppCompatActivity
         trigFunc.setText(getResources().getString(R.string.immDms));
         trigFunc.setTextColor(clr);
         trigFunc.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
+
+        int i;
     }
 
     @Override
