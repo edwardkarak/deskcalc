@@ -38,6 +38,7 @@ import java.math.BigInteger;
 import java.math.MathContext;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Stack;
@@ -608,9 +609,29 @@ public class MainActivity extends AppCompatActivity
                 gcd(denominator, numerator.remainder(denominator));
     }
 
+    BigDecimal gcd(ArrayList<BigDecimal> nums)
+    {
+        BigDecimal res = nums.get(0);
+
+        for (int i = 0; i < nums.size(); ++i)
+           res = gcd(res, nums.get(i));
+
+        return res;
+    }
+
     BigDecimal lcd(BigDecimal a, BigDecimal b)
     {
         return div(b, gcd(a, b)).multiply(a);
+    }
+
+    BigDecimal lcd(ArrayList<BigDecimal> nums)
+    {
+        BigDecimal res = nums.get(0);
+
+        for (int i = 0; i < nums.size(); ++i)
+            res = lcd(res, nums.get(i));
+
+        return res;
     }
 
     public BigDecimal log10(BigDecimal d)
@@ -987,6 +1008,7 @@ public class MainActivity extends AppCompatActivity
 
     private static class CalculationTask extends AsyncTask<String, Void, Object>
     {
+        private static final int MAXARGS = 32;
         Throwable e = null;
         private WeakReference<MainActivity> activityReference;
 
@@ -1110,7 +1132,7 @@ public class MainActivity extends AppCompatActivity
                 }
                 if (ShuntingYard.isFunc(tok)) {
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcSqrt)))) {
-                        if (stk.size() < 1)
+                        if (stk.size() != 1)
                             throw new WrongNumArgs(tok);
                         BigDecimal radicand = stk.pop();
                         BigDecimal res = BigDecimalMath.sqrt(
@@ -1119,7 +1141,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcSin)))) {
-                        if (stk.size() < 1)
+                        if (stk.size() != 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal angle = stk.pop();
@@ -1129,7 +1151,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcCos)))) {
-                        if (stk.size() < 1)
+                        if (stk.size() != 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal angle = stk.pop();
@@ -1138,7 +1160,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcTan)))) {
-                        if (stk.size() < 1)
+                        if (stk.size() != 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal angle = stk.pop();
@@ -1147,7 +1169,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcAsin)))) {
-                        if (stk.size() < 1)
+                        if (stk.size() != 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal side = stk.pop();
@@ -1156,7 +1178,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcAcos)))) {
-                        if (stk.size() < 1)
+                        if (stk.size() != 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal side = stk.pop();
@@ -1165,7 +1187,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcAtan)))) {
-                        if (stk.size() < 1)
+                        if (stk.size() != 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal side = stk.pop();
@@ -1174,8 +1196,8 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcAtan2)))) {
-                        if (stk.size() < 2)
-                            throw new WrongNumArgs(tok);
+                        if (stk.size() != 2)
+                            throw new WrongNumArgs(tok, 2);
 
                         BigDecimal op2 = stk.pop();
                         BigDecimal op1 = stk.pop();
@@ -1185,7 +1207,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcSinh)))) {
-                        if (stk.size() < 1)
+                        if (stk.size() != 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal side = stk.pop();
@@ -1194,7 +1216,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcCosh)))) {
-                        if (stk.size() < 1)
+                        if (stk.size() != 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal side = stk.pop();
@@ -1203,7 +1225,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcTanh)))) {
-                        if (stk.size() < 1)
+                        if (stk.size() != 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal side = stk.pop();
@@ -1212,7 +1234,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcAsinh)))) {
-                        if (stk.size() < 1)
+                        if (stk.size() != 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal side = stk.pop();
@@ -1221,7 +1243,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcAcosh)))) {
-                        if (stk.size() < 1)
+                        if (stk.size() != 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal side = stk.pop();
@@ -1234,7 +1256,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcAtanh)))) {
-                        if (stk.size() < 1)
+                        if (stk.size() != 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal side = stk.pop();
@@ -1247,7 +1269,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcLog)))) {
-                        if (stk.size() < 1)
+                        if (stk.size() != 1)
                             throw new WrongNumArgs(tok);
 
                         /* logBASEb(x) = ln(x) / ln(b)
@@ -1259,7 +1281,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcLn)))) {
-                        if (stk.size() < 1)
+                        if (stk.size() != 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal arg = stk.pop();
@@ -1267,7 +1289,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcExp)))) {
-                        if (stk.size() < 1)
+                        if (stk.size() != 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal arg = stk.pop();
@@ -1275,7 +1297,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcNrt)))) {
-                        if (stk.size() < 2)
+                        if (stk.size() != 2)
                             throw new WrongNumArgs(tok, 2);
 
                         BigDecimal radicand = stk.pop();
@@ -1283,24 +1305,22 @@ public class MainActivity extends AppCompatActivity
                         stk.push(a.nrt(n.toBigInteger(), radicand));
                     }
 
-                    if (tok.equals(remLast(a.getResStr(R.string.sym_funcGcf)))) {
+                    if (tok.equals(remLast(a.getResStr(R.string.sym_funcGcf))) || tok.equals(remLast(a.getResStr(R.string.sym_funcLcm)))) {
                         if (stk.size() < 2)
-                            throw new WrongNumArgs(tok, 2);
+                            throw new WrongNumArgs(tok, 2, true);
 
-                        BigDecimal op2 = stk.pop();
-                        BigDecimal op1 = stk.pop();
+                        ArrayList<BigDecimal> args = new ArrayList<>();
 
-                        stk.push(a.gcd(op1, op2));
-                    }
+                        int i;
+                        for (i = 0; i <= MAXARGS && !stk.empty(); ++i)
+                            args.add(stk.pop());
+                        if (i > MAXARGS)
+                            throw new MaxArgsExceeded(tok, MAXARGS);
 
-                    if (tok.equals(remLast(a.getResStr(R.string.sym_funcLcm)))) {
-                        if (stk.size() < 2)
-                            throw new WrongNumArgs(tok, 2);
-
-                        BigDecimal op2 = stk.pop();
-                        BigDecimal op1 = stk.pop();
-
-                        stk.push(a.lcd(op1, op2));
+                        if (tok.equals(remLast(a.getResStr(R.string.sym_funcGcf))))
+                            stk.push(a.gcd(args));
+                        else
+                            stk.push(a.lcd(args));
                     }
                 }
             }
@@ -1343,7 +1363,7 @@ public class MainActivity extends AppCompatActivity
                     activity.createOKDlg(activity.getResStr(R.string.errTitle_syntax), e.getMessage());
                 } catch (ArithmeticException e) {
                     activity.createOKDlg(activity.getResStr(R.string.errTitle_dom), e.getMessage());
-                } catch (Throwable e) {     // TODO: sometimes get IllegalArgumentException, BigDecimal, precision negative
+                } catch (Throwable e) {
                     activity.createOKDlg(activity.getResStr(R.string.errTitle_other), e.getMessage());
                 }
             }
