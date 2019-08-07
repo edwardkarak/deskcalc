@@ -145,7 +145,13 @@
     <string name="btnDoRecall">Recall</string>
     <string name="initAngleViewTxt">Initial Angle View Text</string>
     <string name="posBtn">OK</string>
+    <string name="closeBtn">Close</string>
     <string name="negBtn">Cancel</string>
+    <string name="applyBtn">Apply</string>
+    <string name="strCopyToClipbrd">Copy to Clipboard</string>
+    <string name="strCopySuccess">Text copied successfully.</string>
+    <string name="titleViewExp">View Expression</string>
+    <string name="msg_selectvar">Please select a variable</string>
 
     <string name="degMode">DEG</string>
     <string name="radMode">RAD</string>
@@ -160,6 +166,6 @@
     <string name="menuSetCirc">Circular</string>
     <string name="menuSetHyp">Hyperbolic</string>
     <string name="menuVibeSettings">Vibration Settings…</string>
-    <string name="applyBtn">Apply</string>
-    <string name="msg_selectvar">Please select a variable</string>
+    <string name="menuViewExp">View Expression…</string>
+
 </resources>

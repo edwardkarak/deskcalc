@@ -3,6 +3,9 @@ package net.magnistudios.deskcalculator;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.ClipData;
+import android.content.ClipDescription;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -16,6 +19,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.TypedValue;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -43,7 +47,7 @@ public class MainActivity extends AppCompatActivity
 {
     public final int MILLIS_VIBE_DURN = 10;
     public final int SCALE = 24;
-    public int nDecFigs = 9;
+    public int nDecFigs = 12;
     public BigDecimal ans = BigDecimal.ZERO;
     public boolean vibeOn = true;
     EditText window;
@@ -134,6 +138,16 @@ public class MainActivity extends AppCompatActivity
         ad.setMessage(msg);
         ad.setPositiveButton(getResStr(R.string.posBtn),
                              (dialogInterface, i) -> dialogInterface.dismiss());
+        ad.show();
+    }
+
+    private void createOKDlg(String title, String msg, String addlBtns)
+    {
+        AlertDialog.Builder ad = new AlertDialog.Builder(MainActivity.this);
+        ad.setTitle(title);
+        ad.setMessage(msg);
+        ad.setPositiveButton(getResStr(R.string.posBtn),
+                (dialogInterface, i) -> dialogInterface.dismiss());
         ad.show();
     }
 
@@ -407,6 +421,21 @@ public class MainActivity extends AppCompatActivity
                 Scientific sci = (Scientific) getSupportFragmentManager().findFragmentById(R.id.scientific);
                 Objects.requireNonNull(sci.getView()).setVisibility(View.GONE);
                 break;
+            case R.id.menuViewExp:
+                AlertDialog.Builder ad = new AlertDialog.Builder(MainActivity.this);
+                ad.setTitle(R.string.titleViewExp);
+                ad.setMessage(window.getText().toString());
+                ad.setPositiveButton(getResStr(R.string.closeBtn),
+                        (dialogInterface, i) -> dialogInterface.dismiss());
+                ad.setNeutralButton(getResStr(R.string.strCopyToClipbrd), (dialogInterface, i) -> {
+                    ClipboardManager clipboard = (ClipboardManager)
+                            getSystemService(Context.CLIPBOARD_SERVICE);
+
+                    clipboard.setPrimaryClip(ClipData.newPlainText("Source Text", window.getText().toString()));
+                    Toast.makeText(this, getResStr(R.string.strCopySuccess), Toast.LENGTH_SHORT).show();
+                });
+                ad.show();
+                break;
         }
 
         Scientific sci = (Scientific) getSupportFragmentManager().
@@ -433,19 +462,28 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu)
+    {
+        super.onPrepareOptionsMenu(menu);
+
+        menu.findItem(R.id.menuViewExp).setEnabled(window.getText().toString().length() > 0);
+
+        return true;
+    }
+
+
     public String getPreferenceValue()
     {
         SharedPreferences sp = getSharedPreferences("angleMode",0);
         return sp.getString("myStore", AngleMode.DEG.toString());
     }
-
-    @Override
+        @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Context ctx = getApplicationContext();
         window = findViewById(R.id.window);
         disableKeybd();
 
@@ -524,9 +562,11 @@ public class MainActivity extends AppCompatActivity
 
     private int numIntDigits(BigDecimal d)
     {
-        String asStr = d.toString();
+        /*String asStr = d.toString();
         String arr[] = asStr.split("\\.");
-        return arr[0].length();
+        return arr[0].length();*/
+
+        return d.compareTo(BigDecimal.ZERO) != 0 ? log10(d.abs()).add(BigDecimal.ONE).intValue() : 1;
     }
 
     public String fmt(BigDecimal d)

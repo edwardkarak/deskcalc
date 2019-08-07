@@ -708,6 +708,7 @@ id funcTanOrFuncAtan
 id groupEnableVibe
 id groupSetView
 id groupTrigOrHyp
+id groupViewResultInDlg
 id home
 id homeAsUp
 id icon
@@ -729,6 +730,7 @@ id menuSetCirc
 id menuSetHyp
 id menuStd
 id menuVibeSettings
+id menuViewExp
 id message
 id middle
 id multiply
@@ -909,6 +911,7 @@ string applyBtn
 string bkspc
 string btnDoRecall
 string ce
+string closeBtn
 string clr
 string constPi
 string decpt
@@ -961,6 +964,7 @@ string menuSetHyp
 string menuSetSci
 string menuSetStd
 string menuVibeSettings
+string menuViewExp
 string msg_selectvar
 string negBtn
 string opAdd
@@ -978,6 +982,8 @@ string rparen
 string sciNot
 string search_menu_title
 string status_bar_notification_info_overflow
+string strCopySuccess
+string strCopyToClipbrd
 string sym_comma
 string sym_constPi
 string sym_decpt
@@ -1015,6 +1021,7 @@ string sym_opSquare
 string sym_opSub
 string sym_rparen
 string sym_varAns
+string titleViewExp
 string title_rclDlg
 string title_vibeSettings
 string varAns
