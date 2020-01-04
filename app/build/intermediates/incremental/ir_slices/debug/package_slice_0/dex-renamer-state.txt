@@ -1,4 +1,0 @@
-#Wed Aug 07 13:21:07 EDT 2019
-base.0=C\:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\deskcalc\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-path.0=classes.dex
-renamed.0=classes.dex

@@ -3,12 +3,11 @@ package net.magnistudios.deskcalculator;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.content.ClipData;
-import android.content.ClipDescription;
-import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,7 +18,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.TypedValue;
-import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -43,10 +41,10 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Stack;
 
-public class MainActivity extends AppCompatActivity
-        implements KeyHandling.Translator
-{
+public class MainActivity extends AppCompatActivity implements KeyHandling.Translator {
+
     public final int MILLIS_VIBE_DURN = 10;
+    public final int VIBE_AMPLITUDE = 100; // max: 255
     public final int SCALE = 24;
     public int nDecFigs = 12;
     public BigDecimal ans = BigDecimal.ZERO;
@@ -63,18 +61,15 @@ public class MainActivity extends AppCompatActivity
         return new BigDecimal(x);
     }
 
-    public boolean isInRadiansMode()
-    {
+    public boolean isInRadiansMode() {
         return this.angleMode == AngleMode.RAD;
     }
 
-    String getResStr(int id)
-    {
+    String getResStr(int id) {
         return getResources().getString(id);
     }
 
-    String angleModeStr(AngleMode mode)
-    {
+    String angleModeStr(AngleMode mode) {
         switch (mode) {
             case DEG:
                 return getResStr(R.string.degMode);
@@ -86,8 +81,7 @@ public class MainActivity extends AppCompatActivity
         return getResStr(R.string.initAngleViewTxt);    // impossible
     }
 
-    BigDecimal toRad(BigDecimal angle)
-    {
+    BigDecimal toRad(BigDecimal angle) {
         switch (angleMode) {
             case DEG:
                 return angle.multiply(piDivBy(mkBd("180")));
@@ -97,8 +91,7 @@ public class MainActivity extends AppCompatActivity
         return angle;
     }
 
-    BigDecimal toDeg(BigDecimal angle)
-    {
+    BigDecimal toDeg(BigDecimal angle) {
         switch (angleMode) {
             case RAD:
                 BigDecimal ret = angle.multiply(mkBd("180")).
@@ -110,8 +103,7 @@ public class MainActivity extends AppCompatActivity
         return angle;
     }
 
-    BigDecimal radsToCurrent(BigDecimal radians)
-    {
+    BigDecimal radsToCurrent(BigDecimal radians) {
         switch (angleMode) {
             case DEG:
                 return radians.multiply(div(mkBd("180"), pi()));
@@ -121,29 +113,26 @@ public class MainActivity extends AppCompatActivity
         return radians;
     }
 
-    private void createOKDlg(String title, String msg, int iconId)
-    {
+    private void createOKDlg(String title, String msg, int iconId) {
         AlertDialog.Builder ad = new AlertDialog.Builder(MainActivity.this);
         ad.setTitle(title);
         ad.setMessage(msg);
         ad.setIcon(iconId);
         ad.setPositiveButton(getResStr(R.string.posBtn),
-                             (dialogInterface, i) -> dialogInterface.dismiss());
+                (dialogInterface, i) -> dialogInterface.dismiss());
         ad.show();
     }
 
-    private void createOKDlg(String title, String msg)
-    {
+    private void createOKDlg(String title, String msg) {
         AlertDialog.Builder ad = new AlertDialog.Builder(MainActivity.this);
         ad.setTitle(title);
         ad.setMessage(msg);
         ad.setPositiveButton(getResStr(R.string.posBtn),
-                             (dialogInterface, i) -> dialogInterface.dismiss());
+                (dialogInterface, i) -> dialogInterface.dismiss());
         ad.show();
     }
 
-    private void createOKDlg(String title, String msg, String addlBtns)
-    {
+    private void createOKDlg(String title, String msg, String addlBtns) {
         AlertDialog.Builder ad = new AlertDialog.Builder(MainActivity.this);
         ad.setTitle(title);
         ad.setMessage(msg);
@@ -153,8 +142,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void append(String newText)
-    {
+    public void append(String newText) {
         BasicOps bo = (BasicOps) getSupportFragmentManager().findFragmentById(R.id.basicOps);
         bo.setEnterPressedBefore(false);
 
@@ -167,8 +155,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void insert(int curPos, String newText)
-    {
+    public void insert(int curPos, String newText) {
         BasicOps bo = (BasicOps) getSupportFragmentManager().findFragmentById(R.id.basicOps);
         bo.setEnterPressedBefore(false);
 
@@ -188,8 +175,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void clear()
-    {
+    public void clear() {
         BasicOps bo = (BasicOps) getSupportFragmentManager().findFragmentById(R.id.basicOps);
         bo.setEnterPressedBefore(false);
 
@@ -197,8 +183,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void del(int curPos)
-    {
+    public void del(int curPos) {
         BasicOps bo = (BasicOps) getSupportFragmentManager().findFragmentById(R.id.basicOps);
         bo.setEnterPressedBefore(false);
 
@@ -228,9 +213,7 @@ public class MainActivity extends AppCompatActivity
                 text = text.substring(0, len - 1);
             else
                 text = text.substring(0, len - 1);
-        }
-
-        else if (text.substring(len - 1, len).equals("\u221A"))
+        } else if (text.substring(len - 1, len).equals("\u221A"))
             text = text.substring(0, len - 1);
 
         else if (text.substring(len - 3, len).equals("Mod") ||
@@ -245,26 +228,25 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void invOn()
-    {
+    public void invOn() {
         BasicOps bo = (BasicOps) getSupportFragmentManager().findFragmentById(R.id.basicOps);
         bo.setEnterPressedBefore(false);
 
         int clr = getResources().getColor(
                 R.color.colorAccent);
 
-        ToggleButton togg = (ToggleButton) findViewById(R.id.toggInv);
+        ToggleButton togg = findViewById(R.id.toggInv);
         togg.setTextColor(clr);
 
-        Button sciNotOrFuncLog = (Button) findViewById(R.id.opSciNotOrFuncLog);
+        Button sciNotOrFuncLog = findViewById(R.id.opSciNotOrFuncLog);
         sciNotOrFuncLog.setText(getResources().getString(R.string.funcLog));
         sciNotOrFuncLog.setTextColor(clr);
 
-        Button funcExpOrFuncLog = (Button) findViewById(R.id.funcExpOrFuncLn);
+        Button funcExpOrFuncLog = findViewById(R.id.funcExpOrFuncLn);
         funcExpOrFuncLog.setText(getResources().getString(R.string.funcLn));
         funcExpOrFuncLog.setTextColor(clr);
 
-        Button opModOrOpFact = (Button) findViewById(R.id.opModOrOpFact);
+        Button opModOrOpFact = findViewById(R.id.opModOrOpFact);
         opModOrOpFact.setText(getResources().getString(R.string.opFact));
         opModOrOpFact.setTextColor(clr);
 
@@ -295,42 +277,42 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void invOff()
-    {
+    public void invOff() {
         BasicOps bo = (BasicOps) getSupportFragmentManager().findFragmentById(R.id.basicOps);
         bo.setEnterPressedBefore(false);
 
         int clr;
-        // log->EE; ln->exp; lcm->gcf; asin->sin; acos->cos; atan->tan; asinh->sinh; acosh->cosh; atanh->tanh
+        // log->EE; ln->exp; lcm->gcf; asin->sin; acos->cos; atan->tan; asinh->sinh;
+        // acosh->cosh; atanh->tanh
         Button sciNotOrFuncLog = (Button) findViewById(R.id.opSciNotOrFuncLog);
         sciNotOrFuncLog.setText(getResources().getString(R.string.sciNot));
         sciNotOrFuncLog.setTextColor(clr = getResources().getColor(
                 R.color.colorCalcBtn));
 
-        ToggleButton togg = (ToggleButton) findViewById(R.id.toggInv);
+        ToggleButton togg = findViewById(R.id.toggInv);
         togg.setTextColor(clr);
 
-        Button funcExpOrFuncLog = (Button) findViewById(R.id.funcExpOrFuncLn);
+        Button funcExpOrFuncLog = findViewById(R.id.funcExpOrFuncLn);
         funcExpOrFuncLog.setText(getResources().getString(R.string.funcExp));
         funcExpOrFuncLog.setTextColor(clr);
 
-        Button opModOrOpFact = (Button) findViewById(R.id.opModOrOpFact);
+        Button opModOrOpFact = findViewById(R.id.opModOrOpFact);
         opModOrOpFact.setText(getResources().getString(R.string.opMod));
         opModOrOpFact.setTextColor(clr);
 
-        ImageButton funcSqrtOrFuncNrt = (ImageButton) findViewById(
+        ImageButton funcSqrtOrFuncNrt = findViewById(
                 R.id.funcSqrtOrFuncNrt);
         funcSqrtOrFuncNrt.setImageResource(R.drawable.ic_sqrt);
 
-        Button gcf = (Button) findViewById(R.id.funcGcfOrFuncLcm);
+        Button gcf = findViewById(R.id.funcGcfOrFuncLcm);
         gcf.setText(getResources().getString(R.string.funcGcf));
         gcf.setTextColor(clr);
 
-        Button trigFunc = (Button) findViewById(R.id.funcSinOrFuncAsin);
+        Button trigFunc = findViewById(R.id.funcSinOrFuncAsin);
         trigFunc.setText(getResources().getString(trigMode == TrigMode.CIRC ? R.string.funcSin : R.string.funcSinh));
         trigFunc.setTextColor(clr);
 
-        trigFunc = (Button) findViewById(R.id.funcCosOrFuncAcos);
+        trigFunc = findViewById(R.id.funcCosOrFuncAcos);
         trigFunc.setText(getResources().getString(trigMode == TrigMode.CIRC ? R.string.funcCos : R.string.funcCosh));
         trigFunc.setTextColor(clr);
 
@@ -345,31 +327,27 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void enterPressed(String expr)
-    {
-        new CalculationTask(this).execute(expr);
+    public void enterPressed(String expr) {
+        new CalculationTask(this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, expr);
     }
 
-    public void vibrate()
-    {
+    public void vibrate() {
         if (vibeOn)
             vibrateAlways();
     }
 
-    public void vibrateAlways()
-    {
+    public void vibrateAlways() {
         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         assert v != null;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            v.vibrate(VibrationEffect.createOneShot(MILLIS_VIBE_DURN, VibrationEffect.DEFAULT_AMPLITUDE));
+            v.vibrate(VibrationEffect.createOneShot(MILLIS_VIBE_DURN, VIBE_AMPLITUDE));
         else
             //deprecated in API 26
             v.vibrate(MILLIS_VIBE_DURN);
     }
 
-    private String recreateWithoutDigSeparators(String withDigSeps)
-    {
+    private String recreateWithoutDigSeparators(String withDigSeps) {
         StringBuilder res = new StringBuilder();
         for (int i = 0; i < withDigSeps.length(); ++i)
             if (withDigSeps.charAt(i) != ',')
@@ -377,22 +355,18 @@ public class MainActivity extends AppCompatActivity
         return res.toString();
     }
 
-    // TODO: Implement Help
     // TODO: Implement History
-
-    // TODO: When in Split screen mode, hide scientific
 
     // TODO: Too many args. are accepted
 
-    // TODO: Save vibration state settings
+    // TODO: Implement dark mode
 
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menuAbout:
                 createOKDlg(getResources().getString(R.string.aboutTitle),
-                            getResources().getString(R.string.aboutMsg),
-                            R.mipmap.ic_launcher);
+                        getResources().getString(R.string.aboutMsg),
+                        R.mipmap.ic_launcher);
                 return true;
 
             case R.id.menuSetCirc:
@@ -412,31 +386,23 @@ public class MainActivity extends AppCompatActivity
             case R.id.menuSci: {
                 item.setChecked(false);
 
-                Scientific sci = (Scientific) getSupportFragmentManager().findFragmentById(R.id.scientific);
+                Scientific sci = (Scientific) getSupportFragmentManager().
+                        findFragmentById(R.id.scientific);
                 Objects.requireNonNull(sci.getView()).setVisibility(View.VISIBLE);
                 break;
             }
             case R.id.menuStd:
                 item.setChecked(false);
 
-                Scientific sci = (Scientific) getSupportFragmentManager().findFragmentById(R.id.scientific);
+                Scientific sci = (Scientific) getSupportFragmentManager().
+                        findFragmentById(R.id.scientific);
                 Objects.requireNonNull(sci.getView()).setVisibility(View.GONE);
                 break;
-            case R.id.menuViewExp:
-                AlertDialog.Builder ad = new AlertDialog.Builder(MainActivity.this);
-                ad.setTitle(R.string.titleViewExp);
-                ad.setMessage(window.getText().toString());
-                ad.setPositiveButton(getResStr(R.string.closeBtn),
-                        (dialogInterface, i) -> dialogInterface.dismiss());
-                ad.setNeutralButton(getResStr(R.string.strCopyToClipbrd), (dialogInterface, i) -> {
-                    ClipboardManager clipboard = (ClipboardManager)
-                            getSystemService(Context.CLIPBOARD_SERVICE);
-
-                    clipboard.setPrimaryClip(ClipData.newPlainText("Source Text", window.getText().toString()));
-                    Toast.makeText(this, getResStr(R.string.strCopySuccess), Toast.LENGTH_SHORT).show();
-                });
-                ad.show();
+            case R.id.menuHelp: {
+                Intent intent = new Intent(this, HelpActivity.class);
+                startActivity(intent);
                 break;
+            }
         }
 
         Scientific sci = (Scientific) getSupportFragmentManager().
@@ -446,14 +412,12 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    public boolean isHypMode()
-    {
+    public boolean isHypMode() {
         return trigMode == TrigMode.HYP;
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
+    public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -464,31 +428,38 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onPrepareOptionsMenu(Menu menu)
-    {
+    public void onMultiWindowModeChanged(boolean isInMultiWindowMode, Configuration c) {
+        if (isInMultiWindowMode) {
+            angleView.setVisibility(View.GONE);
+
+            window.setTextAppearance(this, R.style.TextAppearance_AppCompat_Medium);
+
+            Scientific sci = (Scientific) getSupportFragmentManager().
+                    findFragmentById(R.id.scientific);
+            Objects.requireNonNull(sci.getView()).setVisibility(View.GONE);
+        } else {
+            angleView.setVisibility(View.VISIBLE);
+
+            window.setTextAppearance(this, R.style.TextAppearance_AppCompat_Large);
+
+            Scientific sci = (Scientific) getSupportFragmentManager().
+                    findFragmentById(R.id.scientific);
+            Objects.requireNonNull(sci.getView()).setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-
-        menu.findItem(R.id.menuViewExp).setEnabled(window.getText().toString().length() > 0);
-
         return true;
     }
 
+    public void initSharedPreferences() {
+        SharedPreferences sp = getSharedPreferences("myStore", 0);
 
-    public String getPreferenceValue()
-    {
-        SharedPreferences sp = getSharedPreferences("angleMode",0);
-        return sp.getString("myStore", AngleMode.DEG.toString());
-    }
-        @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        window = findViewById(R.id.window);
-        disableKeybd();
-
-        switch (getPreferenceValue()) {
+        String angleModeStr = sp.getString("angleMode", AngleMode.DEG.toString());
+        assert angleModeStr != null;
+        switch (angleModeStr) {
             case "DEG":
                 angleMode = AngleMode.DEG;
                 break;
@@ -500,15 +471,28 @@ public class MainActivity extends AppCompatActivity
                 break;
         }
 
+        vibeOn = sp.getBoolean("vibeSetting", true);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        window = findViewById(R.id.window);
+        disableKeybd();
+
+        initSharedPreferences();
+
         angleView = findViewById(R.id.angleView);
-        angleView.setOnClickListener(new View.OnClickListener()
-        {
-            public void writeToPreference(String prefData)
-            {
-                SharedPreferences.Editor editor = getSharedPreferences("angleMode",0).edit();
-                editor.putString("myStore", prefData);
+        angleView.setOnClickListener(new View.OnClickListener() {
+            void writeToPreference(String prefData) {
+                SharedPreferences.Editor editor = getSharedPreferences("myStore", 0).
+                        edit();
+                editor.putString("angleMode", prefData);
                 editor.apply();
             }
+
             @Override
             public void onClick(View view) {
                 switch (angleMode) {
@@ -528,24 +512,20 @@ public class MainActivity extends AppCompatActivity
         });
         angleView.setText(angleModeStr(angleMode));
 
-        window.addTextChangedListener(new TextWatcher()
-        {
+        window.addTextChangedListener(new TextWatcher() {
 
             @Override
-            public void afterTextChanged(Editable s)
-            {
+            public void afterTextChanged(Editable s) {
             }
 
             @Override
             public void beforeTextChanged(CharSequence s, int start,
-                                          int count, int after)
-            {
+                                          int count, int after) {
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start,
-                                      int before, int count)
-            {
+                                      int before, int count) {
 
             }
         });
@@ -553,8 +533,7 @@ public class MainActivity extends AppCompatActivity
         ans = ans.setScale(SCALE, BigDecimal.ROUND_HALF_UP);
     }
 
-    private void disableKeybd()
-    {
+    private void disableKeybd() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) // >= API 21
             window.setShowSoftInputOnFocus(false);
         else // API 11-20
@@ -563,10 +542,6 @@ public class MainActivity extends AppCompatActivity
 
     private int numIntDigits(BigDecimal d)
     {
-        /*String asStr = d.toString();
-        String arr[] = asStr.split("\\.");
-        return arr[0].length();*/
-
         return d.compareTo(BigDecimal.ZERO) != 0 ? log10(d.abs()).add(BigDecimal.ONE).intValue() : 1;
     }
 
@@ -593,13 +568,24 @@ public class MainActivity extends AppCompatActivity
         return ret;
     }
 
-    // x must be a non-neg. integer
-    public BigDecimal fact(BigDecimal x)
+    public BigDecimal fact(int x)
     {
-        if (x.compareTo(BigDecimal.ZERO) == 0)
-            return BigDecimal.ONE;
-        else
-            return x.multiply(fact(x.subtract(BigDecimal.ONE)));
+        BigDecimal ret = BigDecimal.ONE;
+        switch (x) {
+            case 0: case 1: return ret;
+            case 2: return mkBd("2");
+            case 3: return mkBd("6");
+            case 4: return mkBd("24");
+            case 5: return mkBd("120");
+            case 6: return mkBd("720");
+            case 7: return mkBd("5040");
+            case 8: return mkBd("40320");
+            case 9: return mkBd("362880");
+        }
+
+        for (; x > 0; --x)
+            ret = ret.multiply(BigDecimal.valueOf(x));
+        return ret;
     }
 
     BigDecimal gcd(BigDecimal numerator, BigDecimal denominator)
@@ -639,7 +625,7 @@ public class MainActivity extends AppCompatActivity
         if (d.compareTo(BigDecimal.ONE) == 0)
             return BigDecimal.ZERO;
         if (d.compareTo(mkBd("1E1")) == 0)
-            return mkBd("1");
+            return BigDecimal.ONE;
         if (d.compareTo(mkBd("1E2")) == 0)
             return mkBd("2");
         if (d.compareTo(mkBd("1E3")) == 0)
@@ -654,12 +640,16 @@ public class MainActivity extends AppCompatActivity
             return mkBd("7");
         if (d.compareTo(mkBd("1E8")) == 0)
             return mkBd("8");
+        if (d.compareTo(mkBd("1E9")) == 0)
+            return mkBd("9");
 
         // log(d) = ln(d)/ln(10)
 
-        final BigDecimal LN10 = mkBd("2.3025850929940456840179914546843642076011014886287729760333279009675726096773524802359972050895982983419677840422862486334095254650828067566662873690987816894829072083255546808437998948262331985283935053089653777326288461633662222876982198867465436674744042432743651550489343149393914796194044002221051017141748003688084012647080685567743216228355220114804663715659121373450747856947683463616792101806445070648000277502684916746550586856935673420670581136429224554405758925724208241314695689016758940256776311356919292033376587141660230105703089634572075440370847469940168269282808481184289314848524948644871927809676271275775397027668605952496716674183485704422507197965004714951050492214776567636938662976979522110718264549734772662425709429322582798502585509785265383207606726317164309505995087807523710333101197857547331541421808427543863591778117054309827482385045648019095610299291824318237525357709750539565187697510374970888692180205189339507238539205144634197265287286965110862571492198849978748873771345686209167058498078280597511938544450099781311469159346662410718466923101075984383191912922307925037472986509290098803919417026544168163357275557031515961135648465461908970428197633658369837163289821744073660091621778505417792763677311450417821376601110107310423978325218948988175979217986663943195239368559164471182467532456309125287783309636042629821530408745609277607266413547875766162629265682987049579549139549180492090694385807900327630179415031178668620924085379498612649334793548717374516758095370882810674524401058924449764796860751202757241818749893959716431055188481952883307466993178146349300003212003277656541304726218839705967944579434683432183953044148448037013057536742621536755798147704580314136377932362915601281853364984669422614652064599420729171193706024449293580370077189810973625332245483669885055282859661928050984471751985036666808749704969822732202448233430971691111368135884186965493237149969419796878030088504089796185987565798948364452120436982164152929878117429733325886079159125109671875109292484750239305726654462762009230687915181358034777012955936462984123664970233551745861955647724618577173693684046765770478743197805738532718109338834963388130699455693993461010907456160333122479493");
-
-        // misleading name--log means natural log
+        final BigDecimal LN10 = mkBd("2.302585092994045684017991454684364207601101488628772976" +
+                "033327900967572609677352480235997205089598298341967784042286248633409525465082" +
+                "806756666287369098781689482907208325554680843799894826233198528393505308965377" +
+                "7326288461633662222876982198867465436674744042432743651550489343149393914796194" +
+                "04400222105101714174800368808401264708068556774321622835522011480466371565912137");
 
         return div(ln(d), LN10);    // log change of base rule
     }
@@ -677,6 +667,7 @@ public class MainActivity extends AppCompatActivity
     public BigDecimal ln(BigDecimal arg)
     {
         try {
+            // misleading name: log means natural log
             return BigDecimalMath.log(arg);
         } catch (ArithmeticException e) {
             throw new ArithmeticException(getResStr(R.string.err_nonreal));
@@ -692,6 +683,9 @@ public class MainActivity extends AppCompatActivity
 
         if (b.compareTo(BigDecimal.ONE) == 0)
             return a;
+
+        if (a.compareTo(BigDecimal.ONE) == 0)
+            return BigDecimal.ONE;
 
         // in general, a^b == exp(b*ln a). However, we must handle non-positive values of a.
         else {
@@ -713,7 +707,7 @@ public class MainActivity extends AppCompatActivity
                     BigInteger n = f.getDen().toBigInteger();
                     BigDecimal radicand = pow(a, f.getNum());
                     if (n.compareTo(new BigInteger("2")) == 0)
-                        result = BigDecimalMath.sqrt(radicand);
+                        result = sqrt(radicand);
                     else
                         result = nrt(n, radicand);
                 }
@@ -723,7 +717,8 @@ public class MainActivity extends AppCompatActivity
 
                 // if exponent is odd, (-a)^b == -(a^b)
                 if (b.remainder(mkBd("2")).compareTo(BigDecimal.ZERO) != 0)
-                    result = BigDecimalMath.exp(b.multiply(BigDecimalMath.log(a.negate()))).negate();
+                    result = BigDecimalMath.exp(b.multiply(BigDecimalMath.log(a.negate()))).
+                            negate();
 
             }
 
@@ -735,20 +730,15 @@ public class MainActivity extends AppCompatActivity
 
     public BigDecimal nrt(BigInteger n, BigDecimal radicand)
     {
-        BigDecimal result;
         if (radicand.compareTo(BigDecimal.ZERO) < 0) {
             if (n.remainder(new BigInteger("2")).compareTo(BigInteger.ZERO) == 0) {
                 if (radicand.compareTo(BigDecimal.ZERO) < 0)    // even root of negative number is nonreal
                     throw new ArithmeticException(getResStr(R.string.err_nonreal));
-                else
-                    result = BigDecimalMath.root(n.intValue(), radicand.negate());
+                return BigDecimalMath.root(n.intValue(), radicand.negate());
             }
-            else
-                result = BigDecimalMath.root(n.intValue(), radicand.negate()).negate();
-        } else
-            result = BigDecimalMath.root(n.intValue(), radicand);
-
-        return result;
+            return BigDecimalMath.root(n.intValue(), radicand.negate()).negate();
+        }
+        return BigDecimalMath.root(n.intValue(), radicand);
     }
 
     final BigDecimal PI_OV_2 = mkBd("1.570796326794896619231321691639751442098584699687552910487472296153908203143104499314017412671058533991074043256641153323546922304775291115862679704064240558725142051350969260552779822311474477465190982214405487832966723064237824116893391582635600954572824283461730174305227163324106696803630124570636862293503303157794");
@@ -819,7 +809,7 @@ public class MainActivity extends AppCompatActivity
             return BigDecimal.ZERO;     // tan(pi*n) = 0. n an integer
 
         if  (x.compareTo(PI_OV_2) == 0)
-            throw new ArithmeticException("Tangent of π/2 is undefined");
+            throw new ArithmeticException(getResStr(R.string.errTitle_dom));
 
         if (x.compareTo(PI_OV_3) == 0)
             return RT3;
@@ -833,9 +823,35 @@ public class MainActivity extends AppCompatActivity
         return BigDecimalMath.tan(x);
     }
 
+    public BigDecimal sqrt(BigDecimal x)
+    {
+        if (x.compareTo(BigDecimal.ZERO) < 0)
+            throw new ArithmeticException(getResStr(R.string.err_nonreal));
+
+        return BigDecimalMath.sqrt(x, MathContext.DECIMAL128);
+    }
+
     public boolean isWholeNumber(BigDecimal number)
     {
         return number.remainder(BigDecimal.ONE).compareTo(BigDecimal.ZERO) == 0;
+    }
+
+    public BigDecimal asin(BigDecimal x)
+    {
+        try {
+            return BigDecimalMath.asin(x);
+        } catch (Exception e) {
+            throw new ArithmeticException(getResStr(R.string.errTitle_dom));
+        }
+    }
+
+    public BigDecimal acos(BigDecimal x)
+    {
+        try {
+            return BigDecimalMath.acos(x);
+        } catch (Exception e) {
+            throw new ArithmeticException(getResStr(R.string.errTitle_dom));
+        }
     }
 
     public BigDecimal div(BigDecimal a, BigDecimal b)
@@ -876,17 +892,19 @@ public class MainActivity extends AppCompatActivity
             dd = dd.negate();
 
         BigDecimal whole = dd.setScale(0, RoundingMode.FLOOR);
-        BigDecimal mins = ((dd.subtract(whole)).multiply(mkBd("60"))).setScale(0, RoundingMode.FLOOR);
-        BigDecimal secs = (dd.subtract(whole).subtract(div(mins, mkBd("60")))).multiply(mkBd("3600"));
+        BigDecimal mins = ((dd.subtract(whole)).multiply(mkBd("60"))).
+                setScale(0, RoundingMode.FLOOR);
+        BigDecimal secs = (dd.subtract(whole).subtract(div(mins, mkBd("60")))).
+                multiply(mkBd("3600"));
 
         StringBuilder sb = new StringBuilder();
 
         if (x.compareTo(BigDecimal.ZERO) < 0)
             sb.append("-");
-        sb.append(String.valueOf(whole));
+        sb.append(whole);
         sb.append("° ");
 
-        sb.append(String.valueOf(mins));
+        sb.append(mins);
         sb.append("' ");
 
         sb.append(fmt(secs));
@@ -922,7 +940,7 @@ public class MainActivity extends AppCompatActivity
         public Dialog onCreateDialog(Bundle savedInstanceState)
         {
             MainActivity activity = (MainActivity) getActivity();
-            final CharSequence ITEMS[] = {"On", "Off"};
+            final CharSequence[] ITEMS = {"On", "Off"};
 
             assert activity != null;
 
@@ -938,8 +956,11 @@ public class MainActivity extends AppCompatActivity
                     activity.vibrateAlways();
             });
             builder.setPositiveButton(R.string.applyBtn, (dialog, id) -> {
-
                 activity.vibeOn = optionSelected.equals(ITEMS[0].toString());
+                    SharedPreferences.Editor editor = activity.
+                            getSharedPreferences("myStore",0).edit();
+                    editor.putBoolean("vibeSetting", activity.vibeOn);
+                    editor.apply();
             });
             builder.setNegativeButton(R.string.negBtn, (dialog, id) -> dialog.dismiss());
 
@@ -967,7 +988,7 @@ public class MainActivity extends AppCompatActivity
 
             String ansFmtted = activity.fmt(activity.ans);
 
-            final CharSequence ITEMS[] = {"Ans = " + ansFmtted};
+            final CharSequence[] ITEMS = {"Ans = " + ansFmtted};
 
             // Use the Builder class for convenient dialog construction
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -1029,7 +1050,7 @@ public class MainActivity extends AppCompatActivity
         {
             String postfix = ShuntingYard.infix2postfix(expr);
             MainActivity a = activityReference.get();
-            String tokens[] = postfix.split("\\s");
+            String[] tokens = postfix.split("\\s");
             Stack<BigDecimal> stk = new Stack<>();
 
             for (String tok : tokens) {
@@ -1088,13 +1109,20 @@ public class MainActivity extends AppCompatActivity
                         if (stk.size() < 1)
                             throw new WrongNumOperands();
                         BigDecimal base = stk.pop();
-                        stk.push(base.multiply(base));
+
+                        if (base.compareTo(BigDecimal.ZERO) == 0 ||
+                                base.compareTo(BigDecimal.ONE) == 0)
+                            stk.push(base);
+                        else
+                            stk.push(base.multiply(base));
                     }
 
                     if (tok.equals(a.getResStr(R.string.sym_opMod))) {
                         if (stk.size() < 2)
                             throw new WrongNumOperands();
                         BigDecimal op2 = stk.pop();
+                        if (op2.compareTo(BigDecimal.ZERO) == 0)
+                            throw new ArithmeticException(a.getString(R.string.err_zeroDivisor));
                         BigDecimal modulus = stk.pop().remainder(op2);
                         stk.push(modulus);
                     }
@@ -1104,12 +1132,14 @@ public class MainActivity extends AppCompatActivity
                             throw new WrongNumOperands();
                         BigDecimal op = stk.pop();
 
-                        if (op.compareTo(BigDecimal.ZERO) < 0)
-                            throw new ArithmeticException(a.getString(R.string.err_negFact));
                         if (!a.isWholeNumber(op))
                             throw new ArithmeticException(a.getString(R.string.err_fracFact));
 
-                        BigDecimal prod = a.fact(op);
+                        int iOp = op.intValue();
+                        if (iOp < 0)
+                            throw new ArithmeticException(a.getString(R.string.err_negFact));
+
+                        BigDecimal prod = a.fact(iOp);
                         stk.push(prod);
                     }
 
@@ -1124,24 +1154,24 @@ public class MainActivity extends AppCompatActivity
                             default:
                                 BigDecimal op2 = stk.pop();
                                 BigDecimal op1 = stk.pop();
-                                stk.push(op1.movePointRight(
-                                        op2.intValueExact()));
+                                stk.push(op1.movePointRight(op2.intValueExact()));
                         }
                     }
 
                 }
                 if (ShuntingYard.isFunc(tok)) {
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcSqrt)))) {
-                        if (stk.size() != 1)
+                        if (stk.size() < 1)
                             throw new WrongNumArgs(tok);
+
                         BigDecimal radicand = stk.pop();
-                        BigDecimal res = BigDecimalMath.sqrt(
-                                radicand, MathContext.DECIMAL128);
+
+                        BigDecimal res = a.sqrt(radicand);
                         stk.push(res);
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcSin)))) {
-                        if (stk.size() != 1)
+                        if (stk.size() < 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal angle = stk.pop();
@@ -1151,7 +1181,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcCos)))) {
-                        if (stk.size() != 1)
+                        if (stk.size() < 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal angle = stk.pop();
@@ -1160,7 +1190,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcTan)))) {
-                        if (stk.size() != 1)
+                        if (stk.size() < 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal angle = stk.pop();
@@ -1169,25 +1199,25 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcAsin)))) {
-                        if (stk.size() != 1)
+                        if (stk.size() < 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal side = stk.pop();
-                        BigDecimal angle = BigDecimalMath.asin(side);
+                        BigDecimal angle = a.asin(side);
                         stk.push(a.radsToCurrent(angle));
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcAcos)))) {
-                        if (stk.size() != 1)
+                        if (stk.size() < 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal side = stk.pop();
-                        BigDecimal angle = BigDecimalMath.acos(side);
+                        BigDecimal angle = a.acos(side);
                         stk.push(a.radsToCurrent(angle));
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcAtan)))) {
-                        if (stk.size() != 1)
+                        if (stk.size() < 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal side = stk.pop();
@@ -1196,7 +1226,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcAtan2)))) {
-                        if (stk.size() != 2)
+                        if (stk.size() < 2)
                             throw new WrongNumArgs(tok, 2);
 
                         BigDecimal op2 = stk.pop();
@@ -1207,7 +1237,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcSinh)))) {
-                        if (stk.size() != 1)
+                        if (stk.size() < 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal side = stk.pop();
@@ -1216,7 +1246,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcCosh)))) {
-                        if (stk.size() != 1)
+                        if (stk.size() < 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal side = stk.pop();
@@ -1225,7 +1255,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcTanh)))) {
-                        if (stk.size() != 1)
+                        if (stk.size() < 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal side = stk.pop();
@@ -1234,7 +1264,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcAsinh)))) {
-                        if (stk.size() != 1)
+                        if (stk.size() < 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal side = stk.pop();
@@ -1243,37 +1273,34 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcAcosh)))) {
-                        if (stk.size() != 1)
+                        if (stk.size() < 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal side = stk.pop();
 
                         if (side.compareTo(BigDecimal.ZERO) == 0)
-                            throw new ArithmeticException("Imaginary");
+                            throw new ArithmeticException(a.getResStr(R.string.err_nonreal));
 
                         BigDecimal angle = BigDecimalMath.cosh(side);
                         stk.push(a.radsToCurrent(angle));
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcAtanh)))) {
-                        if (stk.size() != 1)
+                        if (stk.size() < 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal side = stk.pop();
 
                         if (side.compareTo(BigDecimal.ONE) == 0)
-                            throw new ArithmeticException("Domain");
+                            throw new ArithmeticException(a.getResStr(R.string.errTitle_dom));
 
                         BigDecimal angle = a.atanh(side);
                         stk.push(a.radsToCurrent(angle));
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcLog)))) {
-                        if (stk.size() != 1)
+                        if (stk.size() < 1)
                             throw new WrongNumArgs(tok);
-
-                        /* logBASEb(x) = ln(x) / ln(b)
-                           thus log10(x) = ln(x) / ln(10) */
 
                         BigDecimal arg = stk.pop();
                         BigDecimal res = a.log10(arg);
@@ -1281,7 +1308,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcLn)))) {
-                        if (stk.size() != 1)
+                        if (stk.size() < 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal arg = stk.pop();
@@ -1289,7 +1316,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcExp)))) {
-                        if (stk.size() != 1)
+                        if (stk.size() < 1)
                             throw new WrongNumArgs(tok);
 
                         BigDecimal arg = stk.pop();
@@ -1297,16 +1324,17 @@ public class MainActivity extends AppCompatActivity
                     }
 
                     if (tok.equals(remLast(a.getResStr(R.string.sym_funcNrt)))) {
-                        if (stk.size() != 2)
+                        if (stk.size() < 2)
                             throw new WrongNumArgs(tok, 2);
 
                         BigDecimal radicand = stk.pop();
                         BigDecimal n = stk.pop();
-                        stk.push(a.nrt(n.toBigInteger(), radicand));
+                        stk.push(a.nrt(n.toBigIntegerExact(), radicand));
                     }
 
-                    if (tok.equals(remLast(a.getResStr(R.string.sym_funcGcf))) || tok.equals(remLast(a.getResStr(R.string.sym_funcLcm)))) {
-                        if (stk.size() < 2)
+                    if (tok.equals(remLast(a.getResStr(R.string.sym_funcGcf))) ||
+                            tok.equals(remLast(a.getResStr(R.string.sym_funcLcm)))) {
+                        /*if (stk.size() < 2)
                             throw new WrongNumArgs(tok, 2, true);
 
                         ArrayList<BigDecimal> args = new ArrayList<>();
@@ -1320,19 +1348,24 @@ public class MainActivity extends AppCompatActivity
                         if (tok.equals(remLast(a.getResStr(R.string.sym_funcGcf))))
                             stk.push(a.gcd(args));
                         else
-                            stk.push(a.lcd(args));
+                            stk.push(a.lcd(args));*/
                     }
                 }
             }
+
             return stk.pop();
         }
 
+        // returns String containing formatted answer on success; on failure, an exception
         @Override
         protected Object doInBackground(String... strings) throws SyntaxError,
                 ArithmeticException
         {
             try {
-                return doCalc(strings[0]);
+                MainActivity activity = activityReference.get();
+
+                activity.ans = doCalc(strings[0]);
+                return activity.fmt(activity.ans);
             } catch (Exception ex) {
                 e = ex;
             }
@@ -1347,11 +1380,8 @@ public class MainActivity extends AppCompatActivity
             // if result is a BigDecimal, the calc. was successful
             // otherwise, we had an error
 
-            if (result instanceof BigDecimal) {
-                activity.ans = (BigDecimal) result;
-
-                String fmtted = activity.fmt((BigDecimal) result);
-                activity.window.setText(fmtted);
+            if (result instanceof String) {
+                activity.window.setText((String) result);
 
                 activity.window.setSelection(activity.window.getText().length());
             }
@@ -1363,6 +1393,9 @@ public class MainActivity extends AppCompatActivity
                     activity.createOKDlg(activity.getResStr(R.string.errTitle_syntax), e.getMessage());
                 } catch (ArithmeticException e) {
                     activity.createOKDlg(activity.getResStr(R.string.errTitle_dom), e.getMessage());
+                } catch (NumberFormatException e) {
+                    activity.createOKDlg(activity.getResStr(R.string.err_ovflow),
+                            activity.getResStr(R.string.err_ovflow));
                 } catch (Throwable e) {
                     activity.createOKDlg(activity.getResStr(R.string.errTitle_other), e.getMessage());
                 }
@@ -1370,4 +1403,4 @@ public class MainActivity extends AppCompatActivity
         }
     }
 }
-// TODO: import c++ project for unit conversion
+/// TODO: import c++ project for unit conversion

@@ -1,7 +1,4 @@
-<!DOCTYPE resources [
-    <!ENTITY appname "Desk Calculator">
-    <!ENTITY author "Edward Karak">
-    ]>
+<!DOCTYPE resources [<!ENTITY appname "Bench Calculator"><!ENTITY author "StackPtr">]>
 <resources>
     <string name="app_name">&appname;</string>
 
@@ -130,7 +127,7 @@
     <string name="aboutTitle">About &appname;</string>
     <string name="aboutMsg">Desk calculator for Android\nCopyright &#169;MMXIX by &author;</string>
     <string name="err_zeroDivisor">Zero divisor</string>
-    <string name="err_zero_to_zeroth">Zero to the zeroth power is undefined</string>
+    <string name="err_zero_to_zeroth">Zero to the zeroth power is indeterminate</string>
     <string name="errTitle_dom">Domain Error</string>
     <string name="errTitle_syntax">Syntax Error</string>
     <string name="err_ovflow">Overflow</string>
@@ -167,5 +164,7 @@
     <string name="menuSetHyp">Hyperbolic</string>
     <string name="menuVibeSettings">Vibration Settings…</string>
     <string name="menuViewExp">View Expression…</string>
+    <string name="menuHelpText">Help…</string>
+    <string name="title_activity_help">HelpActivity</string>
 
 </resources>

@@ -6,4 +6,5 @@
     <dimen name="dimenWindowMargin">1dp</dimen>
     <dimen name="dimenAngleViewTextSize">13sp</dimen>
     <dimen name="dimenMarginTop">5dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

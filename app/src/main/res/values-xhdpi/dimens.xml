@@ -3,7 +3,7 @@
     <!--DIMENSIONS FOR DIGITS FRAGMENT-->
     <dimen name="dimenDigitsWidth">225dp</dimen>
 
-    <dimen name="dimenWindowMargin">4dp</dimen>
+    <dimen name="dimenWindowMargin">5dp</dimen>
     <dimen name="dimenAngleViewTextSize">18sp</dimen>
-    <dimen name="dimenMarginTop">6dp</dimen>
+    <dimen name="dimenMarginTop">8dp</dimen>
 </resources>

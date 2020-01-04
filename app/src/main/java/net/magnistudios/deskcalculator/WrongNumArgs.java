@@ -1,6 +1,6 @@
 package net.magnistudios.deskcalculator;
 
-public class WrongNumArgs extends SyntaxError
+class WrongNumArgs extends SyntaxError
 {
     WrongNumArgs(String func)
     {

@@ -26,7 +26,7 @@
         <item android:title="@string/menuVibeSettings" android:id="@+id/menuVibeSettings"/>
     </group>
 
-    <group android:id="@+id/groupViewResultInDlg">
-        <item android:title="@string/menuViewExp" android:id="@+id/menuViewExp" android:enabled="false"/>
+    <group android:id="@+id/groupHelp">
+        <item android:title="@string/menuHelpText" android:id="@+id/menuHelp" />
     </group>
 </menu>

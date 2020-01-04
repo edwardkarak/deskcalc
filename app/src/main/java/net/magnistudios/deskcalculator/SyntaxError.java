@@ -1,6 +1,6 @@
 package net.magnistudios.deskcalculator;
 
-public class SyntaxError extends RuntimeException
+class SyntaxError extends RuntimeException
 {
     SyntaxError(String msg)
     {

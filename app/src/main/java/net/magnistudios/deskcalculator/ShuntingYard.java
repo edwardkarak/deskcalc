@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class ShuntingYard
+class ShuntingYard
 {
     private static final String SUB = "\u2212";
     private static final String NEG = "-";
@@ -48,7 +48,7 @@ public class ShuntingYard
     }
 
     @NonNull
-    public static String infix2postfix(String infix) throws SyntaxError
+    static String infix2postfix(String infix) throws SyntaxError
     {
         Stack<String> operators = new Stack<>();
         Queue<String> output = new LinkedList<>();
@@ -131,13 +131,13 @@ public class ShuntingYard
         return res.toString();
     }
 
-    static boolean shouldMultBeEmitted(TokType tt)
+    private static boolean shouldMultBeEmitted(TokType tt)
     {
         return tt == TokType.OPERAND || tt == TokType.RPAREN
                 || tt == TokType.SQUARED_OPERATOR;
     }
 
-    public static boolean isNumeric(String str)
+    static boolean isNumeric(String str)
     {
         int i = 0, len = str.length();
         boolean a = false, b = false, c = false, d = false;
@@ -160,7 +160,7 @@ public class ShuntingYard
             i++;
             d = true;
         }
-        return i == len && (a || b) && (!c || (c && d));
+        return i == len && (a || b) && (!c || d);
     }
 
     private static boolean isDigit(char c)
@@ -170,7 +170,7 @@ public class ShuntingYard
     }
 
 
-    public static boolean isOperator(String str)
+    static boolean isOperator(String str)
     {
         switch (str) {
             case "^":
@@ -189,7 +189,7 @@ public class ShuntingYard
         }
     }
 
-    public static boolean isBinary(String str)
+    private static boolean isBinary(String str)
     {
         switch (str) {
             case "^":
@@ -205,17 +205,17 @@ public class ShuntingYard
         }
     }
 
-    public static boolean isUnaryPostfix(String str)
+    private static boolean isUnaryPostfix(String str)
     {
         return str.equals("!") || str.equals("²");
     }
 
-    public static boolean isUnaryPrefix(String str)
+    private static boolean isUnaryPrefix(String str)
     {
         return str.equals(NEG);
     }
 
-    public static int countInstsOf(String str, String target)
+    private static int countInstsOf(String str, String target)
     {
         return (str.length() - str.replace(target, "").length()) / target.length();
     }
@@ -248,11 +248,11 @@ public class ShuntingYard
             dest.add(buf.toString());
     }
 
-    public static ArrayList<String> tokenize(String in)
+    static ArrayList<String> tokenize(String in)
     {
         TokType prevTok = TokType.FIRST;
         String regex = "(?<=[-−+^*/()²π!,E])|(?=[-−+^*/()²π!,E])";
-        String toks[] = in.split(regex);
+        String[] toks = in.split(regex);
         ArrayList<String> ret = new ArrayList<>();
         boolean seenLParen = false;
 
@@ -296,7 +296,7 @@ public class ShuntingYard
                 prevTok = TokType.FUNCTION;
             }
             else if (tok.contains("Mod")) {
-                String subtoks[] = tok.split("Mod");
+                String[] subtoks = tok.split("Mod");
                 ret.add(subtoks[0]);
                 ret.add("Mod");
                 ret.add(subtoks[1]);
@@ -315,7 +315,7 @@ public class ShuntingYard
         return ret;
     }
 
-    public static boolean isFunc(String str)
+    static boolean isFunc(String str)
     {
         return str.equals("sin") || str.equals("cos") || str.equals("tan")
             || str.equals("asin") || str.equals("acos") || str.equals("atan")

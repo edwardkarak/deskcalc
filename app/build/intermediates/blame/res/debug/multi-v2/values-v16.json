@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\Edward\\Documents\\prog\\AndroidStudioProjects\\DeskCalculator\\deskcalc\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-2\\files-2.1\\b48ef4cd69449a40ce3dedd17c616be1\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-2\\files-2.1\\7f5f0b3369d8fa8a72a20e2278ec0acc\\appcompat-v7-28.0.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-2\\files-2.1\\f1d26661d3e9ea270a394aa9813d2ffc\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-2\\files-2.1\\b73d0db3c489aeab8b531c92b0313ef9\\support-compat-28.0.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

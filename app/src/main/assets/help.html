@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bench Calculator Help</title>
+    <style>
+		body {
+			padding: 10px;
+		}
+		h2 {
+			text-align: center;
+		}
+		dd {
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+<h2>The Main Screen</h2>
+
+<h3>To change angle mode:</h3>
+<p>Press the gray letters at the top of the screen to switch from Degrees (DEG) to Radians (RAD), Radians to Gradians (GRAD) and Gradians to Degrees. Angles passed into the trigonometric functions and returned from their inverses will be in the units given by the angle mode. The angle mode is saved when you exit the app.</p>
+
+<h3>The Window</h3>
+<p>This rectangular region contains the expression you have keyed in using the keys below. When you press Enter, the expression will disappear and the result of the computation will appear here. If the integer portion of the result is more than four digits long, a comma will appear after every third digit, starting from the right.</p>
+<p>You can copy the result that appears in this window by long-pressing on the window, which will select all the contents in it and display a "Copy" menu option.</p>
+
+<h3>The Standard View Keys</h3>
+<p>These include the C (clear), ⌫ (backspace), digit (0-9), decimal place, negative sign, add, subtract, multiply, divide and Enter keys.</p>
+<p><b>Note:</b> Don't confuse the negative and subtraction keys. The negative sign key is denoted by (-) but subtraction by &#x2212;</p>
+
+<h4>The Multi-Press Behavior of Enter</h4>
+<p>When Enter is pressed after the result of a computation has been displayed in the window, the computation is repeated with the answer in the window. For example, [9] [times key] [6] [Enter] gives 54 on the screen. Pressing [Enter] again gives 324, which is 54*6, and so on.</p>
+
+<h3>The Scientific View Keys</h3>
+<p>For functions, such as sin, exp, etc., you don't need to close the opening parenthesis. Some functions, like n-th root, appear in the window differently than the key shows.</p>
+<dl>
+    <dt>INV</dt>
+    <dd>Replaces some of the other Scientific View keys with their secondary functions. For example, when INV is selected, the sin key changes to asin.</dd>
+
+    <dt>( and )</dt>
+    <dd>Left and right parentheses, respectively. Used to group subexpressions.</dd>
+
+    <dt>, (comma)</dt>
+    <dd>Used to separate arguments for functions accepting more than one argument. Don't use this as a digit separator.</dd>
+
+    <dt>&radic;x</dt>
+    <dd>Gives the positive value of the square root of its argument. First press this key, and then key in the radicand. The result may be non-real, in which case an error will be emitted.</dd>
+
+    <dt><i>x</i><sup>2</sup></dt>
+    <dd>Square operator. Its operand is the number to be squared. Its precedence is higher than that of the negative sign, so to square a negative number, put parentheses around it.</dd>
+
+    <dt>E</dt>
+    <dd>Used in "E" notation, a shorthand for scientific notation. Ex: 6 &times; 10<sup>3</sup> is written as 6E3. The quantity to the left of E does not need to be present, in which case it is assumed to be 1. The number to the right of the E must be an integer.</dd>
+
+    <dt>exp</dt>
+    <dd>Raises Euler's number, e, to the power given by the argument of this function. Ex: exp(1) results in 2.718...</dd>
+
+    <dt>Mod</dt>
+    <dd>Gives the remainder after dividing its left operand by its right operand. If the right operand is zero, the result is undefined and an error is emitted.</dd>
+
+    <dt>gcf</dt>
+    <dd>Gives the greatest common factor of its arguments. It takes at least one and at most 32 arguments.</dd>
+
+    <dt>&pi;</dt>
+    <dd>Evaluates to 3.14159265359, an approximation of the constant &pi;.</dd>
+
+    <dt>a<sup>b</sup></dt>
+    <dd>Raises its left operand to the power of the right operand. Enter the left operand first, press this key, which is rendered as a ^ symbol in the window, and then the right operand. If the result is non-real, or both left-hand and right-hand operands equal 0, an error is emitted.</dd>
+
+    <dt>sin</dt>
+    <dd>Returns the sine of its argument, an angle. The angle is interpreted as either degrees, radians or gradians, depending on the current angle mode.</dd>
+
+    <dt>cos</dt>
+    <dd>Returns the cosine of its argument, an angle. The angle is interpreted as either degrees, radians or gradians, depending on the current angle mode.</dd>
+
+    <dt>tan</dt>
+    <dd>Returns the tangent of its argument, an angle. The angle is interpreted as either degrees, radians or gradians, depending on the current angle mode. If the result is undefined, an error is emitted.</dd>
+
+    <dt>&gt;DMS</dt>
+    <dd>Converts the value in the window into degrees, minutes and seconds. The value in the window is interpreted as either degrees, radians or gradians, depending on the current angle mode. The result is displayed in the window immediately; you don't press the Enter key.</dd>
+
+    <dt>RCL...</dt>
+    <dd>Sbows a dialog box that allows you to recall the value of the Ans variable, which contains the result of the last computation. The dialog also allows you to clear the variable (set equal to 0).</dd>
+
+    <dt>Ans</dt>
+    <dd>Evaluates to the result of the previous computation, which is stored in a variable called Ans. This value is erased when you exit the app.</dd>
+</dl>
+
+<h4>Scientific View Keys when INV is on</h4>
+<p>When the INV key is on, other functions appear:</p>
+
+<dl>
+    <dt><sup>n</sup>&radic;x</dt>
+    <dd>N-th root function. Displayed in the window as nrt(. The first argument is the root, which must be positive; the second is the radicand. Ex: nrt(3,27) is the cube root of 27. The result may be non-real, in which case an error will be emitted.</dd>
+
+    <dt>log</dt>
+    <dd>Gives the base-10 logarithm of its argument. If the argument is 0 or less, the result is non-real and an error is emitted.</dd>
+
+    <dt>ln</dt>
+    <dd>Gives the natural logarithm of its argument. If the argument is 0 or less, the result is non-real and an error is emitted.</dd>
+
+    <dt>n!</dt>
+    <dd>Gives the factorial of its argument. If the argument is negative or a fraction, the result is undefined and an error is emitted.</dd>
+
+    <dt>lcm</dt>
+    <dd>Gives the least common multiple of its arguments. It takes at least one and at most 32 arguments.</dd>
+
+    <dt>asin</dt>
+    <dd>Gives the principal value of the arcsine of its argument. The value returned is an angle measured in the units given by the angle mode. If the argument is outside the range 1 to +1 inclusive, the result is undefined and an error is emitted.</dd>
+
+    <dt>acos</dt>
+    <dd>Gives the principal value of the arccosine of its argument. The value returned is an angle measured in the units given by the angle mode. If the argument is outside the range 1 to +1 inclusive, the result is undefined and an error is emitted.</dd>
+
+    <dt>atan</dt>
+    <dd>Gives the principal value of the arctangent of its argument. The value returned is an angle measured in the units given by the angle mode.</dd>
+
+    <dt>atan2</dt>
+    <dd>Gives the principal value of the arctangent of the ratio of its second argument to its first argument, using the signs of the two arguments to determine the quadrant of the result. The value returned is an angle measured in the units given by the angle mode. The second argument can be 0.</dd>
+</dl>
+
+<hr>
+<h2>Menu</h2>
+<dl>
+    <dt>About...</dt>
+    <dd>Shows the About dialog.</dd>
+
+    <dt>Circular/Hyperbolic</dt>
+    <dd>Only one of these can be selected. When Circular is selected, all the trigonometric functions are interpreted as being circular. When Hyperbolic is selected, all the trigonometric functions (except atan2) are interpreted as being hyperbolic. In this mode, all trigonometric keys (except atan2) have an h added.</dd>
+
+    <dt>Scientific/Standard</dt>
+    <dd>Only one of these can be selected. When Scientific is selected, the Scientific keys are in view. When Standard is selected, they disappear.</dd>
+
+    <dt>Vibration Settings...</dt>
+    <dd>Shows a dialog allowing you to enable or disable vibrations in the app when a key is pressed. The setting is saved when you exit the app.</dd>
+
+    <dt>Help...</dt>
+    <dd>Shows this help page.</dd>
+</dl>
+</body>
+</html>
