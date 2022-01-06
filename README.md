@@ -1,6 +1,5 @@
 # deskcalc
-Multi-function scientific calculator application for Android. Worked on this project when I was in high school.
-
+Multi-function scientific calculator application for Android. 
 * Trigonometric functions and their inverses
 
 * Hyperbolic functions and their inverses
